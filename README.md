@@ -13,6 +13,11 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
   - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 - []()
 
+### Questions About This Domain
+- 
+- 
+- 
+
 ## Data Sets:
 
 ### Energy and Fuel Trends
