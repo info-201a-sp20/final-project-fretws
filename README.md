@@ -7,8 +7,10 @@ During the strange and uncertain times we are currently living in, our group tho
 
 ### Related Projects
 
-- [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
-- []()
+  - [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
+provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
+
+  - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 - []()
 
 ## Data Sets:
