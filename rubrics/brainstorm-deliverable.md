@@ -31,7 +31,7 @@ For each identified data source,
 - What questions (from above) can be answered using the data in this dataset(**1 point**)?
 
 - Apple mobility data: 
-    - The data was released by Apple after removing identifying user information. The data was generated through geolocation tracking from use of Apple hardware and software.
+    - ![_Kaggle Apple Trends_)(https://www.kaggle.com/yushg123/covid-19-mobility-trends-apple-maps) The data was released by Apple after removing identifying user information. The data was generated through geolocation tracking from use of Apple hardware and software.
     - 1158 rows
     - 112 columns
     - This is useful in analysing the movements of the population in necessary versus unnecessary travel.
