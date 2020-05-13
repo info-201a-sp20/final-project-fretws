@@ -21,6 +21,10 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
 
   - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 
+  - [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
+
+  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted. 
+
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
     - Describes how the question can be answered using data (e.g., a specific comparison within or analysis of the data that answers the question) (**1 point**)

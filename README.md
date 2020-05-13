@@ -13,15 +13,26 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
   - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 - []()
 
+### Questions About This Domain
+- 
+- How does the dip in gas prices compare to previous dips in gas prices? Specifically, does the drop in demand fully account for the drop in price, or does there seem to be a more complex reason for the prices to drop as much as they have?
+- Is there a correlation between how well people are sticking to the stay at home order and how many deaths are occurring in their area?
+
 ## Data Sets:
 
 ### Energy and Fuel Trends
-This data was discovered in a report analyzing the [decrease of petroleum/fuel](https://www.eia.gov/todayinenergy/detail.php?id=43455) consumption and pricing due to COVID-19. The full raw data set originates from [Today in Energy](https://www.eia.gov/petroleum/gasdiesel/). The source, today in energy, specifically looks at trends associated with energy news that is updated on a regular basis to remain relevant and accurate. Specifically providing information on the increase and decrease of fuel pricing in relation to worldwide consumption for analysis. The source is composed of 28 columns describing weekly cost per gallon by region for the regular all formulations retail pricing, and 1554 rows that consist of dates from 1994 to 2020 to express the pricing changes from the past to recent effects.
-
+- Today in Energy Data:
+    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide energy/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on energy trends.
+    - 1554 rows
+    - 28 columns
+    - This data is helpful in comprehending the effect of COVID 19 on current energy trends compared to historical ups and downs of fuel pricing.
 
 ### Mobility Trends
-
-
+- Apple mobility data:
+    - The data was released by Apple after removing identifying user information. The data was generated through geolocation tracking from use of Apple hardware and software.
+    - 1158 rows
+    - 112 columns
+    - This is useful in analysing the movements of the population in necessary versus unnecessary travel.
 
 ### Death Rates by State
 <<<<<<< HEAD
