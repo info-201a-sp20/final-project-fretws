@@ -15,9 +15,11 @@ During the strange and uncertain times we are currently living in, our group tho
     - Provides link to a data driven projects (**1 point**)
     - Briefly describes the project in 1 - 2 sentences (**1 points**)
 
-Examples of other projects:
-[Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
+- Examples of other projects:
+  - [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
 provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
+
+  - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
