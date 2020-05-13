@@ -7,14 +7,16 @@ During the strange and uncertain times we are currently living in, our group tho
 
 ### Related Projects
 
-- [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
-- []()
+  - [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
+provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
+
+  - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 - []()
 
 ## Data Sets:
 
 ### Energy and Fuel Trends
-This data was discovered in a report analyzing the [decrease of petroleum/fuel](https://www.eia.gov/todayinenergy/detail.php?id=43455) consumption and pricing due to COVID-19. The full raw data set originates from [Today in Energy])(https://www.eia.gov/petroleum/gasdiesel/). The source, today in energy, specifically looks at trends associated with energy news that is updated on a regular basis to remain relevant and accurate. Specifically providing information on the increase and decrease of fuel pricing in relation to worldwide consumption for analysis. The source is composed of 28 columns describing weekly cost per gallon by region for the regular all formulations retail pricing, and 1554 rows that consist of dates from 1994 to 2020 to express the pricing changes from the past to recent effects.
+This data was discovered in a report analyzing the [decrease of petroleum/fuel](https://www.eia.gov/todayinenergy/detail.php?id=43455) consumption and pricing due to COVID-19. The full raw data set originates from [Today in Energy](https://www.eia.gov/petroleum/gasdiesel/). The source, today in energy, specifically looks at trends associated with energy news that is updated on a regular basis to remain relevant and accurate. Specifically providing information on the increase and decrease of fuel pricing in relation to worldwide consumption for analysis. The source is composed of 28 columns describing weekly cost per gallon by region for the regular all formulations retail pricing, and 1554 rows that consist of dates from 1994 to 2020 to express the pricing changes from the past to recent effects.
 
 
 ### Mobility Trends
@@ -22,6 +24,7 @@ This data was discovered in a report analyzing the [decrease of petroleum/fuel](
 
 
 ### Death Rates by State
+<<<<<<< HEAD
 From [the CDC's dataset library](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst)
 This csv contains the number of deaths reported to the National Center for
 Health Statistics each week from Jan 7, 2017 to Apr. 25, 2020. Each of these
@@ -79,3 +82,10 @@ week of the year. Theese values are copied to the corresponding weeks of the
 other years included in this dataset, i.e. the value of 'Total Excess in 2020'
 in week 5 of 2020 is copied to week 5 of 2017, 2018, and 2019.
 >>>>>>> e70b1d2f848ffcf4d5ba0bf14a95c88b211ef893
+=======
+- Death counts from Jan, 2017 to Apr. 2020:
+    - From [the CDC's dataset library](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst), collected as reports from U.S. counties to the National Center for Health Statistics. It is important to note that these reports can be expected to come in one to two weeks after the deaths that they are reporting.
+    - 36464 rows
+    - 12 columns
+    - We can use this to assess mortality rates due to the coronavirus and compare overall death rates now against death rates in years we did not have active quarantine procedures.
+>>>>>>> 4f3691d316797b1f241ffa18b35d1b06ddcbebca
