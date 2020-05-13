@@ -1,6 +1,6 @@
 # Brainstorm Rubric
 
-This rubric is intended to help guide expectations and increase transparency. However, it is not necessarily fully exhaustive. Make sure to read the detailed explanation on Canvas.
+This rubric is intended to help guide expectations and increase transparency. However, it is not necessarily fully exhaustive. Make sure to read the detailed explanation on [Canvas](https://canvas.uw.edu/courses/1373081/assignments/5314195).
 
 ## Project set up (2 points)
 - Successfully creates repository and adds all group members to the repo. (**1 point**)
@@ -17,13 +17,13 @@ During the strange and uncertain times we are currently living in, our group tho
 
 Examples of other projects:
 [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
-Provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
+provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
     - Describes how the question can be answered using data (e.g., a specific comparison within or analysis of the data that answers the question) (**1 point**)
 
-We hope to analyze the effects of the change in mobility due to the Covid 19 quarentine. We would like to look at the effects on transportation from the stay home order. We may due this by looking at data from oil consumption and prices. Geolocation data from cell phone usage can provide an idea of the effectiveness of the stay home order. This can be compared to normal transportation trends and difference in the change in automotive fatalities.
+We hope to analyze the effects of the change in mobility due to the Covid 19 quarantine. We would like to look at the effects on transportation from the stay home order. We may due this by looking at data from oil consumption and prices. Geolocation data from cell phone usage can provide an idea of the effectiveness of the stay home order. This can be compared to normal transportation trends and difference in the change in automotive fatalities.
 
 ## Finding Data (**15 points**, 5 points each)
 For each identified data source,
