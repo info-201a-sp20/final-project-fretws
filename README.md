@@ -11,10 +11,13 @@ During the strange and uncertain times we are currently living in, our group tho
 provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
 
   - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
-- []()
+
+  - [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
+
+  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted. 
 
 ### Questions About This Domain
-- 
+-
 - How does the dip in gas prices compare to previous dips in gas prices? Specifically, does the drop in demand fully account for the drop in price, or does there seem to be a more complex reason for the prices to drop as much as they have?
 - Is there a correlation between how well people are sticking to the stay at home order and how many deaths are occurring in their area?
 
@@ -32,7 +35,7 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
     - The data was released by Apple after removing identifying user information. The data was generated through geolocation tracking from use of Apple hardware and software.
     - 1158 rows
     - 112 columns
-    - This is useful in analysing the movements of the population in necessary versus unnecessary travel.
+    - This is useful in analyzing the movements of the population in necessary versus unnecessary travel.
 
 ### Death Rates by State
 - Death counts from Jan, 2017 to Apr. 2020:
