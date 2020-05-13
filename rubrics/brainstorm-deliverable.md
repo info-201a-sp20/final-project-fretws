@@ -23,7 +23,7 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
 
   - [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
 
-  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract)
+  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted. 
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
