@@ -35,3 +35,9 @@ For each identified data source,
     - 1158 rows
     - 112 columns
     - This is useful in analysing the movements of the population in necessary versus unnecessary travel.
+    
+- Death counts from Jan, 2017 to Apr. 2020:
+    - From [the CDC's dataset library](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst), collected as reports from U.S. counties to the National Center for Health Statistics.
+    - 36464 rows
+    - 12 columns
+    - We can use this to assess mortality rates due to the corona virus and compare overall death rates now against death rates in years we did not have active quarantine procedures.
