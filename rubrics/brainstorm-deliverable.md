@@ -15,24 +15,23 @@ During the strange and uncertain times we are currently living in, our group tho
     - Provides link to a data driven projects (**1 point**)
     - Briefly describes the project in 1 - 2 sentences (**1 points**)
 
-- Examples of other projects:
-  - [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
-provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
+- [Cuebiq's COVID-19 Mobility Insights](https://help.cuebiq.com/hc/en-us/articles/360041285051-Reading-Cuebiq-s-COVID-19-Mobility-Insights#h_4e44ff71-27e9-4b83-977e-d18911b21817)
+  provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
 
-  - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
+- [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
 
-  - [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
+- [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
 
-  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted.
+- [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted.
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
     - Describes how the question can be answered using data (e.g., a specific comparison within or analysis of the data that answers the question) (**1 point**)
-- How the tracking data effect the compliance with the stay home order? Does the release of the data increase the effectiveness of the order?
 
-  - We hope to analyze the effects of the change in mobility due to the Covid 19 quarantine. We would like to look at the effects on transportation from the stay home order. We may due this by looking at data from oil consumption and prices. Geolocation data from cell phone usage can provide an idea of the effectiveness of the stay home order. This can be compared to normal transportation trends and difference in the change in automotive fatalities.
-
-  - How have travel habits changed by location in response to the COVID-19 stay-at-home orders?
+- Has the advent of big tech companies releasing data on mobility trends at all convinced people to better adhere to stay at home orders?
+- How have travel habits changed by location in response to the COVID-19 stay-at-home orders?
+- How does the dip in gas prices compare to previous dips in gas prices? Specifically, does the drop in demand fully account for the drop in price, or does there seem to be a more complex reason for the prices to drop as much as they have?
+- Is there a correlation between how well people are sticking to the stay at home order and how many deaths are occurring in their area?
 
 ## Finding Data (**15 points**, 5 points each)
 For each identified data source,
@@ -41,20 +40,27 @@ For each identified data source,
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
 - What questions (from above) can be answered using the data in this dataset(**1 point**)?
 
-- Apple mobility data:
-    - ![_Kaggle Apple Trends_)(https://www.kaggle.com/yushg123/covid-19-mobility-trends-apple-maps) The data was released by Apple after removing identifying user information. The data was generated through geolocation tracking from use of Apple hardware and software.
+### Petroleum and Fuel Trends
+- Today in Energy Data:
+    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide petroleum/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on fuel trends.
+    - 1554 rows
+    - 28 columns
+    - This data is helpful in comprehending the effect of COVID 19 on current petroleum usage and cost trends compared to historical ups and downs of fuel pricing.
+
+### Mobility Trends
+- Google mobility data:
+    -  [Apple](https://www.apple.com/covid19/mobility) released the data after removing identifying user information. The data was generated by counting the number of searches that users of Apple maps completed, and it was sorted by country of origin.
     - 1158 rows
     - 112 columns
-    - This is useful in analysing the movements of the population in necessary versus unnecessary travel.
-
+    - This is useful in analyzing a population's interest in getting out of the house by assessing how many requests for directions are being searched for during the quarentine.
+ - Google mobility data:
+    - [Google](https://www.google.com/covid19/mobility/) released a global data set tracking the category of locations from user search history organized by country. Accuracy of the tracking data differs by country. Identifying user information was removed.
+    - 327975 rows
+    - 11 columns
+    - This is useful in analyzing the types of places the population has been frequenting during the quarentine and how that mobility has changed from the norm.  
+### Death Rates by State
 - Death counts from Jan, 2017 to Apr. 2020:
     - From [the CDC's dataset library](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst), collected as reports from U.S. counties to the National Center for Health Statistics. It is important to note that these reports can be expected to come in one to two weeks after the deaths that they are reporting.
     - 36464 rows
     - 12 columns
     - We can use this to assess mortality rates due to the coronavirus and compare overall death rates now against death rates in years we did not have active quarantine procedures.
-
-- Today in Energy Data:
-    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide energy/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on energy trends.
-    - 1554 rows
-    - 28 columns
-    - This data is helpful in comprehending the effect of COVID 19 on current energy trends compared to historical ups and downs of fuel pricing.
