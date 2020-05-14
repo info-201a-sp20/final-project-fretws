@@ -23,12 +23,12 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
 
 ## Data Sets:
 
-### Energy and Fuel Trends
+### Petroleum and Fuel Trends
 - Today in Energy Data:
-    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide energy/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on energy trends.
+    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide petroleum/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on fuel trends.
     - 1554 rows
     - 28 columns
-    - This data is helpful in comprehending the effect of COVID 19 on current energy trends compared to historical ups and downs of fuel pricing.
+    - This data is helpful in comprehending the effect of COVID 19 on current petroleum usage and cost trends compared to historical ups and downs of fuel pricing.
 
 ### Mobility Trends
 - Apple mobility data:
@@ -36,7 +36,7 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
     - 1158 rows
     - 112 columns
     - This is useful in analyzing a population's interest in getting out of the house, and assessing to what extent is public transit still being used.
-    
+
 ### Death Rates by State
 - Death counts from Jan, 2017 to Apr. 2020:
     - From [the CDC's dataset library](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst), collected as reports from U.S. counties to the National Center for Health Statistics. It is important to note that these reports can be expected to come in one to two weeks after the deaths that they are reporting.
