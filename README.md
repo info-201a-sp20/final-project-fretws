@@ -17,7 +17,8 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
   - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted.
 
 ### Questions About This Domain
--
+- Has the advent of big tech companies releasing data on mobility trends at all convinced people to better adhere to stay at home orders?
+- 
 - How does the dip in gas prices compare to previous dips in gas prices? Specifically, does the drop in demand fully account for the drop in price, or does there seem to be a more complex reason for the prices to drop as much as they have?
 - Is there a correlation between how well people are sticking to the stay at home order and how many deaths are occurring in their area?
 
