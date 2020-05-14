@@ -24,12 +24,12 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
 
 ## Data Sets:
 
-### Energy and Fuel Trends
+### Petroleum and Fuel Trends
 - Today in Energy Data:
-    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide energy/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on energy trends.
+    - [Today in Energy data](https://www.eia.gov/petroleum/gasdiesel/) was collected based on national and worldwide petroleum/fuel pricing and consumption. These numbers are updated on a regular basis, approximately once a week, to understand the effects of issues such as COVID 19 on fuel trends.
     - 1554 rows
     - 28 columns
-    - This data is helpful in comprehending the effect of COVID 19 on current energy trends compared to historical ups and downs of fuel pricing.
+    - This data is helpful in comprehending the effect of COVID 19 on current petroleum usage and cost trends compared to historical ups and downs of fuel pricing.
 
 ### Mobility Trends
 - Google mobility data:
