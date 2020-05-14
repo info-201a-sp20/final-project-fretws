@@ -11,7 +11,10 @@ During the strange and uncertain times we are currently living in, our group tho
 provides graphics depicting an analysis of shelter in place. Counties are ranked by stay home percentage and illustrated by color.
 
   - [COVID-19 Community Mobility Reports](https://www.google.com/covid19/mobility/) provides insight on how closly the stay-at-home orders around the world are being followed. The report charts movement over time by location across different catagories like retial, recreation, or groceries and pharmacies.
-- []()
+
+  - [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
+
+  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted.
 
 ### Questions About This Domain
 - Has the advent of big tech companies releasing data on mobility trends at all convinced people to better adhere to stay at home orders?
@@ -34,7 +37,7 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
     - 1158 rows
     - 112 columns
     - This is useful in analyzing a population's interest in getting out of the house, and assessing to what extent is public transit still being used.
-
+    
 ### Death Rates by State
 - Death counts from Jan, 2017 to Apr. 2020:
     - From [the CDC's dataset library](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst), collected as reports from U.S. counties to the National Center for Health Statistics. It is important to note that these reports can be expected to come in one to two weeks after the deaths that they are reporting.
