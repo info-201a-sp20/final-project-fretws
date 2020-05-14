@@ -23,14 +23,16 @@ provides graphics depicting an analysis of shelter in place. Counties are ranked
 
   - [Social Distancing Scoreborad](https://www.unacast.com/covid19/social-distancing-scoreboard) is an interactive scoreboard showing the percentage decrease in average distance traveled, non-essencial visitation, and human encounters.
 
-  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted. 
+  - [Global Energy Review 2020](https://www.iea.org/reports/global-energy-review-2020/oil#abstract) provides insight on how decreased global mobility has had a profound effect on oil demand around the world. Decreased demand will reduce the cost and use of oil after restrictions are lifted.
 
 - What data-driven questions do you hope to answer about this domain (**6 points**, 2 points each)
     - Question is related to the field (**1 point**)
     - Describes how the question can be answered using data (e.g., a specific comparison within or analysis of the data that answers the question) (**1 point**)
 - How the tracking data effect the compliance with the stay home order? Does the release of the data increase the effectiveness of the order?
 
-We hope to analyze the effects of the change in mobility due to the Covid 19 quarantine. We would like to look at the effects on transportation from the stay home order. We may due this by looking at data from oil consumption and prices. Geolocation data from cell phone usage can provide an idea of the effectiveness of the stay home order. This can be compared to normal transportation trends and difference in the change in automotive fatalities.
+  - We hope to analyze the effects of the change in mobility due to the Covid 19 quarantine. We would like to look at the effects on transportation from the stay home order. We may due this by looking at data from oil consumption and prices. Geolocation data from cell phone usage can provide an idea of the effectiveness of the stay home order. This can be compared to normal transportation trends and difference in the change in automotive fatalities.
+
+  - How have travel habits changed by location in response to the COVID-19 stay-at-home orders?
 
 ## Finding Data (**15 points**, 5 points each)
 For each identified data source,
@@ -39,7 +41,7 @@ For each identified data source,
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
 - What questions (from above) can be answered using the data in this dataset(**1 point**)?
 
-- Apple mobility data: 
+- Apple mobility data:
     - ![_Kaggle Apple Trends_)(https://www.kaggle.com/yushg123/covid-19-mobility-trends-apple-maps) The data was released by Apple after removing identifying user information. The data was generated through geolocation tracking from use of Apple hardware and software.
     - 1158 rows
     - 112 columns
