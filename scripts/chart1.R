@@ -1,6 +1,4 @@
 # A file with a function that returns your first chart
-library(ggplot2)
-library(dplyr)
 
 plot_1 <- function(df) {
    diamonds_sample <- sample_n(diamonds, 1000)

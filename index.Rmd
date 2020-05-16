@@ -6,6 +6,8 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
 source("scripts/chart1.R")
 ```
 
