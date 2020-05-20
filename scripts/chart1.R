@@ -1,8 +1,55 @@
 # A file with a function that returns your first chart
 
-plot_1 <- function(df) {
-   diamonds_sample <- sample_n(diamonds, 1000)
+# Change over time by travel catagory
 
-   ggplot(diamonds_sample) +
-      geom_point(mapping = aes(x = carat, y = price))
+# library("dplyr")
+# library("ggplot")
+# 
+# data <- read.csv("../data/Global_Mobility_Report.csv")
+# 
+# data_test <- data %>%
+#   select(
+#     country_region, date,
+#     retail_and_recreation_percent_change_from_baseline,
+#     grocery_and_pharmacy_percent_change_from_baseline,
+#     parks_percent_change_from_baseline,
+#     transit_stations_percent_change_from_baseline,
+#     workplaces_percent_change_from_baseline,
+#     residential_percent_change_from_baseline
+#   ) %>%
+#   group_by(date, country_region) %>%
+#   summarise(
+#     r_and_r = round(mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)),
+#     g_and_p = round(mean(grocery_and_pharmacy_percent_change_from_baseline, na.rm = TRUE)),
+#     parks = round(mean(parks_percent_change_from_baseline, na.rm = TRUE)),
+#     transit = round(mean(transit_stations_percent_change_from_baseline, na.rm = TRUE)),
+#     workplace = round(mean(workplaces_percent_change_from_baseline, na.rm = TRUE)),
+#     residential = round(mean(residential_percent_change_from_baseline, na.rm = TRUE))
+#   )
+
+# PROBLEM: Too much data to graph by date and region
+#   SOLUTIONS:
+#     - Average change per day globally
+#     - Monthly change per region(need help w/ this)
+
+plot_1 <- function(df) {
+  df <- df %>%
+    select(
+      country_region, date,
+      retail_and_recreation_percent_change_from_baseline,
+      grocery_and_pharmacy_percent_change_from_baseline,
+      parks_percent_change_from_baseline,
+      transit_stations_percent_change_from_baseline,
+      workplaces_percent_change_from_baseline,
+      residential_percent_change_from_baseline
+    ) %>%
+    group_by(date, country_region) %>%
+    summarise(
+      r_and_r = round(mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)),
+      g_and_p = round(mean(grocery_and_pharmacy_percent_change_from_baseline, na.rm = TRUE)),
+      parks = round(mean(parks_percent_change_from_baseline, na.rm = TRUE)),
+      transit = round(mean(transit_stations_percent_change_from_baseline, na.rm = TRUE)),
+      workplace = round(mean(workplaces_percent_change_from_baseline, na.rm = TRUE)),
+      residential = round(mean(residential_percent_change_from_baseline, na.rm = TRUE))
+    )
 }

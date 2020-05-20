@@ -1,6 +1,8 @@
 
 plot_3 <- function(data) {
-   data = data %>% select(-sub_region_2)
+   data = data %>%
+      filter(country_region_code == "US") %>%
+      select(-country_region_code, -country_region, -sub_region_2)
    usa <- map_data(map = "state") %>% select(-subregion)
    df <- left_join(usa, data, by = c("region" = "sub_region_1"))
    # TODO: Swap out dummy data for real summary dataset
@@ -10,6 +12,7 @@ plot_3 <- function(data) {
       geom_polygon(aes(x = long, y = lat, group = group, text = paste0(
          stringr::str_to_title(region), "\n",
          "Parks: ", parks_percent_change_from_baseline)),
-                   fill = "blue", color = "white"))
+                   fill = "blue", color = "white")) +
+      labs(x = "Longitude", y = "Latitude", title = "Mobility by State")
    ggplotly(plot, tooltip = "text")
 }

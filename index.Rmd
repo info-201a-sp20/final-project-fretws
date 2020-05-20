@@ -6,31 +6,31 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-<<<<<<< HEAD
-library(ggplot2)
-library(dplyr)
-library("knitr")
-source("scripts/chart1.R")
-source("scripts/summary_table.R")
-source("scripts/summary.R")
-source("scripts/chart2.R")
-=======
 library("ggplot2")
 library("dplyr")
+library("tidyr")
 library("plotly")
+library("knitr")
+source("scripts/chart1.R")
+# source("scripts/summary_table.R")
+# source("scripts/summary.R")
+source("scripts/chart2.R")
+source("scripts/chart3.R")
 # Edit load_data.R to load your data properly, then we all share the loaded
 # datasets
 source("scripts/load_data.R")
-# source(scripts/summary.R)
-# source(scripts/summary_table.R)
-source("scripts/chart1.R")
-# source("scripts/chart2.R")
->>>>>>> 77ba56e0f5ba6c43bfe8bcf259dae2e6e66df174
-source("scripts/chart3.R")
+```
+
+``` {r Summary_Table}
+kable(aggregated_table)
 ```
 
 ```{r plot1}
-plot_1(diamonds)
+plot_1(mobility)
+```
+
+```{r plot2}
+plot_2(deaths)
 ```
 
 ```{r plot3}
