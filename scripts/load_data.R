@@ -1,6 +1,4 @@
 
-mobility <- read.csv("data/Global_Mobility_Report.csv") %>%
-   filter(country_region_code == "US") %>%
-   select(-country_region_code, -country_region)
+mobility <- read.csv("data/Global_Mobility_Report.csv")
 
-deaths <- read.csv("../data/Excess_Deaths_Associated_with_COVID-19.csv")
+deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv")
