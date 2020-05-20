@@ -1,8 +1,5 @@
 
 plot_3 <- function(data) {
-   # data = data %>%
-   #    filter(country_region_code == "US") %>%
-   #    select(-country_region_code, -country_region, -sub_region_2)
    usa <- map_data(map = "state") %>% select(-subregion)
    df <- left_join(usa, data, by = c("region" = "sub_region_1"))
    # TODO: Swap out dummy data for real summary dataset
