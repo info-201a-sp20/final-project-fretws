@@ -8,7 +8,12 @@ output: html_document
 ```{r setup, include=FALSE}
 library(ggplot2)
 library(dplyr)
+library("knitr")
 source("scripts/chart1.R")
+source("scripts/summary_table.R")
+source("scripts/summary.R")
+source("scripts/chart2.R")
+source("scripts/chart3.R")
 ```
 
 ```{r plot1}
