@@ -20,6 +20,10 @@ source("scripts/chart3.R")
 source("scripts/load_data.R")
 ```
 
+``` {r Summary_Table}
+kable(aggregated_table)
+```
+
 ```{r plot1}
 plot_1(mobility)
 ```
