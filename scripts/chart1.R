@@ -40,7 +40,7 @@ data_test <- data %>%
   group_by(week, travel_category)
 
 ggplot(data = data_test) +
-  geom_line(mapping = aes(x = week, y = mean_percent_change, color = travel_category))
+  geom_line(mapping = aes(x = week, y = percent_change, color = travel_category))
 
 # NOTE* copy code block above into function below when its finished
 
