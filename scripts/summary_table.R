@@ -1,12 +1,7 @@
 # A file with a function that returns a table of summary information included
 # in your report
-library("dplyr")
-library("tidyr")
-google_data <- read.csv("data/Global_Mobility_Report.csv", stringsAsFactors = FALSE)
 
-google_data <- Global_Mobility_Report %>%
-   filter(country_region_code == "US")
-average_table <- google_data %>%
+average_table <- mobility %>%
    group_by(sub_region_1) %>%
    summarize(workplaces_percent_change_from_baseline = mean(workplaces_percent_change_from_baseline, na.rm = TRUE),
              parks_percent_change_from_baseline = mean(parks_percent_change_from_baseline, na.rm = TRUE),
@@ -19,4 +14,3 @@ aggregated_table <- gather(average_table,
                           value = Average,
                           -sub_region_1,
                           )
-kable(aggregated_table)
