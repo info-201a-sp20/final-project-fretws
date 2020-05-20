@@ -12,7 +12,7 @@ library("tidyr")
 library("plotly")
 library("knitr")
 source("scripts/chart1.R")
-# source("scripts/summary_table.R")
+source("scripts/summary_table.R")
 # source("scripts/summary.R")
 source("scripts/chart2.R")
 source("scripts/chart3.R")
@@ -22,7 +22,7 @@ source("scripts/load_data.R")
 ```
 
 ``` {r Summary_Table}
-kable(aggregated_table)
+kable(aggregated_table(mobility))
 ```
 
 ```{r plot1}
