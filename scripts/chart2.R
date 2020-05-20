@@ -15,6 +15,5 @@ plot_2 <- function(df) {
     coord_flip() +
     ggtitle("Excess Death by State in 2020") +
     xlab("States") +
-    ylab("Number of Deaths") +
-    labs(legend = "Travel Catagory")
+    ylab("Number of Deaths")
 }
