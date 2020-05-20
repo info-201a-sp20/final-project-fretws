@@ -2,10 +2,7 @@
 
 # total excess deaths by state (in 2020)
 
-library("dplyr")
-library("ggplot2")
-
-plot_1 <- function(df) {
+plot_2 <- function(df) {
   df <- df %>%
     filter(Year == 2020, State != "United States", State != "District of Columbia")%>%
     group_by(State) %>%
@@ -15,5 +12,9 @@ plot_1 <- function(df) {
     )
   ggplot(data = df) +
     geom_col(mapping = aes(x = State, y = excess, fill = State)) +
-    coord_flip()
+    coord_flip() +
+    ggtitle("Excess Death by State in 2020") +
+    xlab("States") +
+    ylab("Number of Deaths") +
+    labs(legend = "Travel Catagory")
 }
