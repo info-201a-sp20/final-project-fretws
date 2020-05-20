@@ -6,8 +6,9 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library(ggplot2)
-library(dplyr)
+library("ggplot2")
+library("dplyr")
+library("plotly")
 # Edit load_data.R to load your data properly, then we all share the loaded
 # datasets
 source("scripts/load_data.R")
@@ -15,10 +16,13 @@ source("scripts/load_data.R")
 # source(scripts/summary_table.R)
 source("scripts/chart1.R")
 # source("scripts/chart2.R")
-# source("scripts/chart3.R")
+source("scripts/chart3.R")
 ```
 
 ```{r plot1}
 plot_1(diamonds)
 ```
 
+```{r plot3}
+plot_3(mobility)
+```
