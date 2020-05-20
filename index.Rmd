@@ -8,6 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 library("ggplot2")
 library("dplyr")
+library("tidyr")
 library("plotly")
 library("knitr")
 source("scripts/chart1.R")
