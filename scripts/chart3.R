@@ -8,7 +8,7 @@ plot_3 <- function(data) {
       # Suppress warning from using text argument for tooltip
       suppressWarnings(
       geom_polygon(aes(x = long, y = lat, group = group, text = paste0(
-         "State: ", region, "\n",
+         stringr::str_to_title(region), "\n",
          "Parks: ", parks_percent_change_from_baseline)),
                    fill = "blue", color = "white"))
    ggplotly(plot, tooltip = "text")
