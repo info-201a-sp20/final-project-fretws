@@ -11,10 +11,10 @@ library("dplyr")
 library("tidyr")
 library("plotly")
 library("knitr")
-source("scripts/load_data.R")
-# source("scripts/summary.R")
+#source("scripts/load_data.R")
+source("scripts/summary.R")
 source("scripts/summary_table.R")
-source("scripts/chart1.R")
+#source("scripts/chart1.R")
 source("scripts/chart2.R")
 source("scripts/chart3.R")
 # Edit load_data.R to load your data properly, then we all share the loaded
@@ -22,7 +22,7 @@ source("scripts/chart3.R")
 ```
 
 ``` {r Summary_Table}
-kable(aggregated_table)
+kable(aggregated_table(mobility), col.names = c("State", "Workplace", "Parks", "Grocery", "Retail", "Transit"))
 ```
 
 ```{r plot1}
