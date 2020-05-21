@@ -12,7 +12,7 @@ library("tidyr")
 library("plotly")
 library("knitr")
 source("scripts/load_data.R")
-# source("scripts/summary.R")
+source("scripts/summary.R")
 source("scripts/summary_table.R")
 average_table <- aggregated_table(mobility)
 source("scripts/chart1.R")
@@ -20,6 +20,10 @@ source("scripts/chart2.R")
 source("scripts/chart3.R")
 # Edit load_data.R to load your data properly, then we all share the loaded
 # datasets
+```
+
+```{r summary.R, echo = F}
+summary_info(global_mobility_report, "grocery_and_pharmacy_percent_change_from_baseline", "retail_and_recreation_percent_change_from_baseline")
 ```
 
 ``` {r Summary_Table, echo = F}
