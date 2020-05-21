@@ -39,6 +39,8 @@ plot_1(mobility)
 plot_2(deaths)
 ```
 
+To get a better idea as to how much people in the US are still going out, the following map shows the states colored by the percentage change from baseline in their mobility habits overall (lighter blue represents a more mobile population). Hovering over a state reveals the state's name and its mobility data by category.
+
 ```{r plot3, echo = F}
 plot_3(average_table)
 ```
