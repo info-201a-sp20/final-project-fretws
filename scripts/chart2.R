@@ -7,7 +7,8 @@ library("ggplot2")
 
 plot_1 <- function(df) {
   df <- df %>%
-    filter(Year == 2020, State != "United States", State != "District of Columbia")%>%
+    filter(Year == 2020, State != "United States",
+           State != "District of Columbia") %>%
     group_by(State) %>%
     distinct(State, Total.Excess.in.2020) %>%
     summarise(
