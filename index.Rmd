@@ -11,30 +11,34 @@ library("dplyr")
 library("tidyr")
 library("plotly")
 library("knitr")
-#source("scripts/load_data.R")
+library("maps")
+source("scripts/load_data.R")
 source("scripts/summary.R")
 source("scripts/summary_table.R")
-#source("scripts/chart1.R")
+average_table <- aggregated_table(mobility)
+source("scripts/chart1.R")
 source("scripts/chart2.R")
 source("scripts/chart3.R")
-# Edit load_data.R to load your data properly, then we all share the loaded
-# datasets
 ```
 
 During the strange and uncertain times we are currently living in, our group thought it fitting to use data related to the COVID-19 outbreak and try to understand how it has impacted (directly or indirectly) people around the world. Due to the stay-at-home orders issued around the world, many people find themselves at home for much longer than usual. We are collecting data on **Energy Usage**, **Mobility Trends**, and **Death Rates**. We will unpack these data sets to analyze both the environmental impact that COVID-19 (and the following human behavior) had, and the excess deaths beyond those attributed to COVID-19. By studying these data sets, we hope to learn more about how the COVID-19 outbreak has impacted the world beyond just how many are sick or dead because of the virus.
 
-``` {r Summary_Table, echo = FALSE}
-kable(aggregated_table(mobility), col.names = c("State", "Workplace", "Parks", "Grocery", "Retail", "Transit"))
+```{r summary.R, echo = F}
+summary_info(mobility, "grocery_and_pharmacy_percent_change_from_baseline", "retail_and_recreation_percent_change_from_baseline")
 ```
 
-```{r plot1, echo=FALSE}
-# plot_1(mobility)
+``` {r Summary_Table, echo = F}
+kable(average_table, col.names = c("State", "Workplace", "Parks", "Grocery", "Retail", "Transit"))
 ```
 
-```{r plot2, echo=FALSE}
-# plot_2(deaths)
+```{r plot1, echo = F}
+plot_1(mobility)
 ```
 
-```{r plot3, echo=FALSE}
-plot_3(aggregated_table)
+```{r plot2, echo = F}
+plot_2(deaths)
+```
+
+```{r plot3, echo = F}
+plot_3(average_table)
 ```
