@@ -38,5 +38,4 @@ plot_1 <- function(data) {
                           c("Grocery and Pharmacy", "Parks and Recreation",
                             "Retail and Recreation", "Residential",
                             "Transit Stations", "Workplaces"))
-
 }
