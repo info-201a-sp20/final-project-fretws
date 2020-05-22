@@ -14,7 +14,9 @@ aggregated_table <- function(df) {
       retail_and_recreation_percent_change_from_baseline =
         mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE),
       transit_stations_percent_change_from_baseline =
-        mean(transit_stations_percent_change_from_baseline, na.rm = TRUE)
+        mean(transit_stations_percent_change_from_baseline, na.rm = TRUE),
+      residential_percent_change_from_baseline =
+         mean(residential_percent_change_from_baseline, na.rm = TRUE)
     )
   return(sum_tab)
 }

@@ -32,6 +32,7 @@ For our summary information we focused the function on the Mobility Trends datas
 
 
 #Summary Table
+The table provides a condensed form of information on each category for the State. Grouping by state, we calculated the mean for the category over the date range to show the average change in pattern of behavior. The largest decreases were in the categories of work, transit, and retail. This was juxtaposed by the increase in park activity.
 ``` {r Summary_Table, echo = F}
 kable(average_table, col.names = c("State", "Workplace", "Parks", "Grocery", "Retail", "Transit"))
 ```
