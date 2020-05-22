@@ -1,3 +1,9 @@
+# A file with a function that returns your third chart
+
+# Map of mobility per state
+
+#load function to pass lint check
+library("plotly")
 
 plot_3 <- function(data) {
 
