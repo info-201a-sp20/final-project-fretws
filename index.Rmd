@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Index"
 author: "Mariah S., Ryan L., Shane F., Sumeet W."
 date: "5/15/2020"
 output: html_document
@@ -22,11 +22,11 @@ source("scripts/chart2.R")
 source("scripts/chart3.R")
 ```
 
-##Introduction
+## Introduction
 
 During the strange and uncertain times we are currently living in, our group thought it fitting to use data related to the COVID-19 outbreak and try to understand how it has impacted (directly or indirectly) people around the world. Due to the stay-at-home orders issued around the world, many people find themselves at home for much longer than usual. We are collecting data on **Energy Usage**, **Mobility Trends**, and **Death Rates**. We will unpack these data sets to analyze both the environmental impact that COVID-19 (and the following human behavior) had, and the excess deaths beyond those attributed to COVID-19. By studying these data sets, we hope to learn more about how the COVID-19 outbreak has impacted the world beyond just how many are sick or dead because of the virus.
 
-##Summary
+## Summary
 
 For our summary information we focused the function on the Mobility Trends dataset to get a better understanding of movement during COVID-19. The Mobility Trends dataset contains `r info[[1]]` rows that explains the volume of information that is currently available and `r info[[2]]` columns with the following column names:
 
@@ -35,7 +35,7 @@ For our summary information we focused the function on the Mobility Trends datas
 These columns are critical in knowing where the regional information is arriving from, the day the data originates from, and what specific groupings the mobility percent changes are connected to. Additonally, to understand the data, our summary function displays two average national mobility percent changes, one in reference to an essential activity such as grocery and pharmacy of `r info[[4]]`. As well as a non-essential activity such as retail and recreation national average of `r info[[5]]`. These two averages imply the importance of population mobility as a whole during a pandemic and further interested our group in our analysis of the dataset. 
 
 
-#Summary Table
+## Summary Table
 The table provides a condensed form of information on each category for the State. Grouping by state, we calculated the mean for the category over the date range to show the average change in pattern of behavior.
 
 The largest decreases were in the categories of work, transit, and retail. This was juxtaposed by the increase in park activity.
@@ -43,7 +43,7 @@ The largest decreases were in the categories of work, transit, and retail. This 
 kable(average_table, col.names = c("State", "Workplace", "Parks", "Grocery", "Retail", "Transit", "Residence"))
 ```
 
-##Graph of Change in Social Movements During Quarantine
+## Graph of Change in Social Movements During Quarantine
 
 We chose to graph the change in society's movements over time, relative to the baseline that has been recorded by Google. The lines colored lines representing categories show the change in habits over time and the efficacy of the stay home orders.
 
@@ -53,7 +53,7 @@ The lines indicate that the stay home orders have been effective due to the rise
 plot_1(mobility)
 ```
 
-##Graph of Death Rates During the Pandemic Year
+## Graph of Death Rates During the Pandemic Year
 
 We wanted to represent the change in mortality rates for the year during the pandemic. This graph represents the number of deaths above the normal baseline. New York seems to have had the most drastic impact for the year. The states with a drastically higher number of deaths can be compared states' pandemic mobility trends shown in the next map.
 
@@ -61,7 +61,7 @@ We wanted to represent the change in mortality rates for the year during the pan
 plot_2(deaths)
 ```
 
-##Map of State Mobility Patterns
+## Map of State Mobility Patterns
 
 To get a better idea as to how much people in the US are still going out, the following map shows the states colored by the percentage change from baseline in their mobility habits overall (lighter blue represents a more mobile population). Hovering over a state reveals the state's name and its mobility data by category. The states in the center of the country shows the least decrease in travel and the least efficacy in social distancing. The most drastic effects of quarantine seem to be in California and Florida.
 
