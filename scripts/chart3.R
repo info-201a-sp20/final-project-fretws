@@ -3,7 +3,9 @@
 # Map of mobility per state
 
 #load function to pass lint check
+library("dplyr")
 library("plotly")
+library("ggplot2")
 
 plot_3 <- function(data) {
 

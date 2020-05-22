@@ -1,4 +1,6 @@
 # A file with a function that returns your first chart
+library("dplyr")
+library("ggplot2")
 
 # Change over time by travel category
 plot_1 <- function(data) {

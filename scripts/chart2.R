@@ -1,4 +1,6 @@
 # A file with a function that returns your second chart
+library("dplyr")
+library("ggplot2")
 
 # total excess deaths by state (in 2020)
 

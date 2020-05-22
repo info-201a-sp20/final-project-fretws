@@ -6,12 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library("ggplot2")
-library("dplyr")
-library("tidyr")
-library("plotly")
 library("knitr")
-library("maps")
 
 mobility <- read.csv("data/Global_Mobility_Report.csv",
                      stringsAsFactors = F) %>%
