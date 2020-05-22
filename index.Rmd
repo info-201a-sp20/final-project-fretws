@@ -14,6 +14,7 @@ library("knitr")
 library("maps")
 source("scripts/load_data.R")
 source("scripts/summary.R")
+info <- summary_info(mobility, "grocery_and_pharmacy_percent_change_from_baseline", "retail_and_recreation_percent_change_from_baseline")
 source("scripts/summary_table.R")
 average_table <- aggregated_table(mobility)
 source("scripts/chart1.R")
@@ -21,25 +22,37 @@ source("scripts/chart2.R")
 source("scripts/chart3.R")
 ```
 
+##Introduction
+
 During the strange and uncertain times we are currently living in, our group thought it fitting to use data related to the COVID-19 outbreak and try to understand how it has impacted (directly or indirectly) people around the world. Due to the stay-at-home orders issued around the world, many people find themselves at home for much longer than usual. We are collecting data on **Energy Usage**, **Mobility Trends**, and **Death Rates**. We will unpack these data sets to analyze both the environmental impact that COVID-19 (and the following human behavior) had, and the excess deaths beyond those attributed to COVID-19. By studying these data sets, we hope to learn more about how the COVID-19 outbreak has impacted the world beyond just how many are sick or dead because of the virus.
 
-For our summary information we focused the function on the Mobility Trends dataset to get a better understanding of movement during COVID-19. The Mobility Trends dataset contains 224087 rows that explains the volume of information that is currently available and 8 columns with these column names: sub_region_1, date, and percent change from the baseline for retail_and_recreation_, grocery_and_pharmacy_, parks_, transit_stations_, workplaces_, residential_. These columns are critical in knowing where the regional information is arriving from, the day the data originates from, and what specific groupings the mobility percent changes are connected to. Additonally, to understand the data, our summary function displays two average national mobility percent changes, one in reference to an essential activity such as grocery and pharmacy of 0.3547553. As well as a non-essential activity such as retail and recreation national average of -14.16448. These two averages imply the importance of population mobility as a whole during a pandemic and further interested our group in our analysis of the dataset. 
+##Summary
 
-```{r summary.R, echo = F}
-summary_info(mobility, "grocery_and_pharmacy_percent_change_from_baseline", "retail_and_recreation_percent_change_from_baseline")
-```
+For our summary information we focused the function on the Mobility Trends dataset to get a better understanding of movement during COVID-19. The Mobility Trends dataset contains `r info[1]` rows that explains the volume of information that is currently available and `r info[2]` columns with these column names: sub_region_1, date, and percent change from the baseline for retail_and_recreation_, grocery_and_pharmacy_, parks_, transit_stations_, workplaces_, residential_. These columns are critical in knowing where the regional information is arriving from, the day the data originates from, and what specific groupings the mobility percent changes are connected to. Additonally, to understand the data, our summary function displays two average national mobility percent changes, one in reference to an essential activity such as grocery and pharmacy of `r info[4]`. As well as a non-essential activity such as retail and recreation national average of `r info[5]`. These two averages imply the importance of population mobility as a whole during a pandemic and further interested our group in our analysis of the dataset. 
 
+
+#Summary Table
 ``` {r Summary_Table, echo = F}
 kable(average_table, col.names = c("State", "Workplace", "Parks", "Grocery", "Retail", "Transit"))
 ```
+
+##Graph of Change in Social Movements During Quarentine
+
+This graph shows the change in society's movements relative to the baseline that has been recorded by Google. The lines colored lines representing categories show the change in habits over time and the efficacy of the stay home orders.
 
 ```{r plot1, echo = F}
 plot_1(mobility)
 ```
 
+##Graph of Death Rates During the Pandemic Year
+
+This graph represents the number of deaths above the normal baseline. The states with a drastically higher number of deaths can be compared states' pandemic mobility trends shown in the next map.
+
 ```{r plot2, echo = F}
 plot_2(deaths)
 ```
+
+##Map of State Mobility Patterns
 
 To get a better idea as to how much people in the US are still going out, the following map shows the states colored by the percentage change from baseline in their mobility habits overall (lighter blue represents a more mobile population). Hovering over a state reveals the state's name and its mobility data by category.
 

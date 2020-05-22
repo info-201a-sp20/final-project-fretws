@@ -18,9 +18,3 @@ aggregated_table <- function(df) {
     )
   return(sum_tab)
 }
-
-# aggregated_table <- gather(average_table,
-# key = Category,
-# value = Average,
-#-sub_region_1,
-# )
