@@ -1,4 +1,5 @@
 # A file with a function that returns your first chart
+library("tidyr")
 library("dplyr")
 library("ggplot2")
 
