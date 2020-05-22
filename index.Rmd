@@ -24,7 +24,7 @@ source("scripts/chart3.R")
 
 ## Introduction
 
-During the strange and uncertain times we are currently living in, our group thought it fitting to use data related to the COVID-19 outbreak and try to understand how it has impacted (directly or indirectly) people around the world. Due to the stay-at-home orders issued around the world, many people find themselves at home for much longer than usual. We are collecting data on **Energy Usage**, **Mobility Trends**, and **Death   Rates**. We will unpack these data sets to analyze both the environmental impact that   COVID-19 (and the following human behavior) had, and the excess deaths beyond those   attributed to COVID-19. By studying these data sets, we hope to learn more about how the COVID-19 outbreak has impacted the world beyond just how many are sick or dead because of the virus.
+During the strange and uncertain times we are currently living in, our group thought it fitting to use data related to the COVID-19 outbreak and try to understand how it has impacted (directly or indirectly) people across the country. Due to the stay-at-home orders issued across the country, many people find themselves at home for much longer than usual. We are collecting data on **Energy Usage**, **Mobility Trends**, and **Death   Rates**. We will unpack these data sets to analyze both the environmental impact that   COVID-19 (and the following human behavior) had, and the excess deaths beyond those   attributed to COVID-19. By studying these data sets, we hope to learn more about how the COVID-19 outbreak has impacted the country beyond just how many are sick or dead because of the virus.
 
 ## Summary
 
@@ -32,7 +32,7 @@ For our summary information we focused the function on the Mobility Trends datas
 
 - `r paste(info[[3]], collapse = ",\n\n- ")`
 
-These columns are critical in knowing where the regional information is arriving from, the day the data originates from, and what specific groupings the mobility percent changes are connected to. Additonally, to understand the data, our summary function displays two average national mobility percent changes, one in reference to an essential activity such as grocery and pharmacy of `r info[[4]]`. As well as a non-essential activity such as retail and recreation national average of `r info[[5]]`. These two averages imply the importance of population mobility as a whole during a pandemic and further interested our group in our analysis of the dataset.
+These columns are critical in knowing where the regional information is arriving from, the day the data originates from, and what specific groupings the mobility percent changes are connected to. Additonally, to understand the data, our summary function displays two average national mobility percent changes, one in reference to an essential activity such as the grocery and pharmacy national average of `r info[[4]]`. As well as non-essential activity such as the retail and recreation national average of `r info[[5]]`. These two averages imply the importance of population mobility as a whole during a pandemic.
 
 ## Summary Table
 The table provides a condensed form of information on each category for the State. Grouping by state, we calculated the mean for the category over the date range to show the average change in pattern of behavior.
