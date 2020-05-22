@@ -38,7 +38,9 @@ kable(average_table, col.names = c("State", "Workplace", "Parks", "Grocery", "Re
 
 ##Graph of Change in Social Movements During Quarentine
 
-This graph shows the change in society's movements relative to the baseline that has been recorded by Google. The lines colored lines representing categories show the change in habits over time and the efficacy of the stay home orders.
+We chose to graph the change in society's movements over time, relative to the baseline that has been recorded by Google. The lines colored lines representing categories show the change in habits over time and the efficacy of the stay home orders. 
+
+The lines indicate that the stay home orders have been effective due to the rise in the residential category. The only Thing that drastically increased was the category representing parks. The other categories show significant decrease. The grocery category shows little change signaling essential operation.
 
 ```{r plot1, echo = F}
 plot_1(mobility)
@@ -46,7 +48,7 @@ plot_1(mobility)
 
 ##Graph of Death Rates During the Pandemic Year
 
-This graph represents the number of deaths above the normal baseline. The states with a drastically higher number of deaths can be compared states' pandemic mobility trends shown in the next map.
+We wanted to represent the change in mortality rates for the year during the pandemic. This graph represents the number of deaths above the normal baseline. New York seems to have had the most drastic impact for the year. The states with a drastically higher number of deaths can be compared states' pandemic mobility trends shown in the next map.
 
 ```{r plot2, echo = F}
 plot_2(deaths)
@@ -54,7 +56,7 @@ plot_2(deaths)
 
 ##Map of State Mobility Patterns
 
-To get a better idea as to how much people in the US are still going out, the following map shows the states colored by the percentage change from baseline in their mobility habits overall (lighter blue represents a more mobile population). Hovering over a state reveals the state's name and its mobility data by category.
+To get a better idea as to how much people in the US are still going out, the following map shows the states colored by the percentage change from baseline in their mobility habits overall (lighter blue represents a more mobile population). Hovering over a state reveals the state's name and its mobility data by category. The states in the center of the country shows the least decrease in travel and the least efficacy in social distancing. The most drastic effects of quarentine seem to be in California and Florida.
 
 ```{r plot3, echo = F}
 plot_3(average_table)
