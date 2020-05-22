@@ -6,17 +6,17 @@ aggregated_table <- function(df) {
     group_by(sub_region_1) %>%
     summarize(
       workplaces_percent_change_from_baseline =
-        mean(workplaces_percent_change_from_baseline, na.rm = TRUE),
+        round(mean(workplaces_percent_change_from_baseline, na.rm = TRUE), 2),
       parks_percent_change_from_baseline =
-        mean(parks_percent_change_from_baseline, na.rm = TRUE),
+        round(mean(parks_percent_change_from_baseline, na.rm = TRUE), 2),
       grocery_and_pharmacy_percent_change_from_baseline =
-        mean(grocery_and_pharmacy_percent_change_from_baseline, na.rm = TRUE),
+        round(mean(grocery_and_pharmacy_percent_change_from_baseline, na.rm = TRUE), 2),
       retail_and_recreation_percent_change_from_baseline =
-        mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE),
+        round(mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE), 2),
       transit_stations_percent_change_from_baseline =
-        mean(transit_stations_percent_change_from_baseline, na.rm = TRUE),
+        round(mean(transit_stations_percent_change_from_baseline, na.rm = TRUE), 2),
       residential_percent_change_from_baseline =
-         mean(residential_percent_change_from_baseline, na.rm = TRUE)
+         round(mean(residential_percent_change_from_baseline, na.rm = TRUE), 2)
     )
   return(sum_tab)
 }
