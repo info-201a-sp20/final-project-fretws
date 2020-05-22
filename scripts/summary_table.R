@@ -1,6 +1,9 @@
 # A file with a function that returns a table of summary information included
 # in your report
 
+# load library to pass lint check
+library("dplyr")
+
 aggregated_table <- function(df) {
   sum_tab <- mobility %>%
     group_by(sub_region_1) %>%
