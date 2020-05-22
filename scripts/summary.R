@@ -1,6 +1,9 @@
 # A file with a function that calculates summary information
 # to be included in your report
 
+#load library to pass lint check
+library("dplyr")
+
 summary_info <- function(df, col_name1, col_name2) {
   column_name_1 <- df %>% pull(col_name1)
   column_name_2 <- df %>% pull(col_name2)
