@@ -1,9 +1,14 @@
 #define variable for sidebar panel for fourth page
-fourth_sidebar_content <- sidebarPanel(
+fourth_sidebar_content_one <- sidebarPanel(
    checkboxInput(
       "barcheck",
       label = "Select State",
       vvalue = list()
+   )
+)
+fourth_sidebar_content_two <- sidebarPanel(
+   dateRangeInput(
+
    )
 )
 #define variable for main panel for fourth page
@@ -17,5 +22,6 @@ fourth_panel <- tabPanel(
    titlePanel("State Effectiveness"),
    sidebarLayout(
       fourth_sidebar_content,
+      fourth_sidebar_content_two,
       fourth_main_content)
 )
