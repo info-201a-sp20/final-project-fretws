@@ -23,7 +23,11 @@ fourth_sidebar_content_two <- sidebarPanel(
    label = "Select Date Range",
    start = "01/04/2020",
    min = "01/04/2020",
+<<<<<<< HEAD
    max =
+=======
+   max = ""
+>>>>>>> da556a43466b68443cd4ff2221d84ed9292ec812
    )
 )
 # define variable for main panel for fourth page
@@ -41,6 +45,32 @@ fourth_panel <- tabPanel(
       fourth_sidebar_content_two,
       fourth_main_content)
 )
+
+# Function for bar chart 
+death_and_mobility <- function(df_1, df_2) {
+   df_one <- df_1 %>%
+      df_two <- df_2 %>%
+         filter(Year == 2020, State != "United States",
+                State != "District of Columbia") %>%
+         group_by(State) %>%
+         distinct(State, Total.Excess.in.2020) %>%
+         summarise(
+            excess = sum(Total.Excess.in.2020, na.rm = TRUE)
+         )
+      ggplot(data = df_1, df_2) +
+         geom_col(mapping = aes(x = State, y = excess, fill = State)) +
+         coord_flip() +
+         ggtitle("Excess Death and Mobility by State in 2020") +
+         xlab("State") +
+         ylab("Number of Deaths and Mobility")
+}
+
+
+
+
+
+
+
 
 
 build_bar <- function(df, bar_var){
