@@ -23,7 +23,7 @@ fourth_sidebar_content_two <- sidebarPanel(
    label = "Select Date Range",
    start = "01/04/2020",
    min = "01/04/2020",
-   max = "5/1/2020"
+   max = ""
    )
 )
 # define variable for main panel for fourth page
