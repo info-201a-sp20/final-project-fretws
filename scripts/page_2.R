@@ -24,7 +24,9 @@ side_bar <- sidebarPanel(
 #define variable for main panel for second page
 main_panel = mainPanel(
    # plot(s)
-
+   plotOutput(
+      outputId = "pg2plot"
+   )
 )
 
 #define variable to maneuver content for second page
