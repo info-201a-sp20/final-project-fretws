@@ -1,5 +1,4 @@
 library("shiny")
-library()
 
 page_three <- tabPanel(
   "Page Three",
