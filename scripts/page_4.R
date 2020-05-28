@@ -3,7 +3,7 @@ fourth_sidebar_content_one <- sidebarPanel(
    checkboxInput(
       "barcheck",
       label = "Select State",
-      vvalue = list()
+      value = list()
    )
 )
 fourth_sidebar_content_two <- sidebarPanel(
@@ -25,3 +25,7 @@ fourth_panel <- tabPanel(
       fourth_sidebar_content_two,
       fourth_main_content)
 )
+
+build_bar <- function(data, bar_var){
+
+}
