@@ -1,7 +1,7 @@
 library("dplyr")
 library("lubridate")
 
-source()
+source("scripts/pg2plot.R")
 
 mobility <- read.csv("data/Global_Mobility_Report.csv")
 average_table <- aggregated_table(mobility)
