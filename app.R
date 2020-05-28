@@ -8,5 +8,7 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 
-shinyApp(ui = ui, server = server)
+# shinyApp(ui = ui, server = server)
 
+# For testing ui only
+shinyApp(ui = ui, server = function(input, output){})
