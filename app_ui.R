@@ -8,12 +8,19 @@ source("scripts/page_3.R")
 source("scripts/page_4.R")
 source("scripts/summary_table.R")
 
+# Control + Shift + C to uncomment
+# ui <- navbarpage(
+#   "app title goes here",
+#   intro_page,
+#   summary_page,
+#   page_two,
+#   page_three,
+#   page_four,
+#   summary_table
+# )
+
 ui <- navbarPage(
-  "App Title Goes Here",
-  intro_page,
-  summary_page,
+  "Final Deliverable",
   page_two,
-  page_three,
-  page_four,
-  summary_table
+  page_three
 )

@@ -6,7 +6,7 @@ mobility <- read.csv("data/Global_Mobility_Report.csv")
 server <- function(input, output) {
 
 
-   output$pg2plot <- renderplot({
+   output$pg2plot <- renderPlot({
       cat <- input$trav_cat
       data <- mobility %>%
          select(!! as.name(cat), date) %>%
@@ -30,6 +30,6 @@ server <- function(input, output) {
 
 
    output$chart3 <- renderPlot({
-      plot <- plot_3(average_table)
+      plot_3(average_table)
    })
 }
