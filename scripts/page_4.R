@@ -1,5 +1,7 @@
 
 library(shiny)
+library("dplyr")
+library("carData")
 
 # define variable for sidebar panel for fourth page (51 list)
 fourth_sidebar_content_one <- sidebarPanel(
@@ -22,8 +24,9 @@ fourth_sidebar_content_two <- sidebarPanel(
    dateRangeInput(
    label = "Select Date Range",
    start = "01/04/2020",
-   min = "01/04/2020",
-   max = ""
+   min = "2020-02-15",
+   max = "2020-05-07",
+   format = "yyyy-mm-dd"
    )
 )
 # define variable for main panel for fourth page
@@ -60,3 +63,18 @@ death_and_mobility <- function(df_1, df_2) {
          xlab("State") +
          ylab("Number of Deaths and Mobility")
 }
+
+
+mobility <- read.csv("data/Global_Mobility_Report.csv",
+                     stringsAsFactors = F) %>%
+   filter(country_region_code == "US") %>%
+   filter(sub_region_1 != "") %>%
+   select(-country_region_code, -country_region, -sub_region_2) %>%
+   rename(state = sub_region_1)
+mobility$regions <- sapply(mobility$states, function(x) names(region.list)[grep(x,region.list)])
+
+region <- as.data.frame(list(state.name, state.region)) %>%
+   rename(state = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
+   rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
+
+mobility_regions <- left_join(mobility, region)
