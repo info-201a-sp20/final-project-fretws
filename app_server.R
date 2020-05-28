@@ -1,6 +1,6 @@
 library("dplyr")
 
-mobility <- read.csv("Global_Mobility_Report.csv")
+mobility <- read.csv("data/Global_Mobility_Report.csv")
 
 server <- function(input, output) {
 
