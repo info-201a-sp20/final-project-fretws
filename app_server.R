@@ -1,6 +1,8 @@
 library("dplyr")
 
 mobility <- read.csv("Global_Mobility_Report.csv")
+#for testing only
+average_table <- aggregated_table(mobility)
 
 server <- function(input, output) {
 
@@ -13,7 +15,7 @@ server <- function(input, output) {
    })
 
 
-   output$chart3 <- renderPlot({
-      plot_3(average_table)
+   output$chart3 <- renderPlotly({
+      pg3plot
    })
 }
