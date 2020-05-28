@@ -1,12 +1,12 @@
 #load shiny library
 library("shiny")
 
-source("intro_page.R")
-source("summary_page.R")
-source("page_2.R")
-source("page_3.R")
-source("page_4.R")
-source("summary_table.R")
+source("scripts/intro_page.R")
+source("scripts/summary_page.R")
+source("scripts/page_2.R")
+source("scripts/page_3.R")
+source("scripts/page_4.R")
+source("scripts/summary_table.R")
 
 ui <- navbarPage(
   "App Title Goes Here",
