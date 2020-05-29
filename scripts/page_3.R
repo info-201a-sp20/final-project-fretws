@@ -14,7 +14,7 @@ page_three <- tabPanel(
   )
 )
 
-pg3plot <- plot_3(average_table)
+# pg3plot <- plot_3(average_table)
 #define variable for sidebar panel for third page
 
 #define variable for main panel for third page

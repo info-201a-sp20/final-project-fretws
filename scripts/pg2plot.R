@@ -1,7 +1,15 @@
 # Define a function that takes in a cleaned dataset of mobility data and plots
 # trends in the given travel category over the given time frame.
 
-pg2plot <- function(data, categories)
+pg2plot <- function(data, categories) {
+   if (length(categories) == 0) {
+      categories <- c("grocery_and_pharmacy_percent_change_from_baseline",
+                      "parks_percent_change_from_baseline",
+                      "retail_and_recreation_percent_change_from_baseline",
+                      "transit_stations_percent_change_from_baseline",
+                      "workplaces_percent_change_from_baseline")
+   }
+
    grouped <- data %>%
       mutate(week = week(ymd(date))) %>%
       group_by(week)
@@ -20,7 +28,7 @@ pg2plot <- function(data, categories)
       key = travel_category,
       value = avg_percent_change,
       -week
-    )
+   )
 
 
    ggplot(averages) +
@@ -33,3 +41,4 @@ pg2plot <- function(data, categories)
                             c("Grocery and Pharmacy", "Parks and Recreation",
                               "Retail and Recreation", "Residential",
                               "Transit Stations", "Workplaces"))
+}
