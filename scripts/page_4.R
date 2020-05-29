@@ -1,7 +1,7 @@
 
 library(shiny)
 library("dplyr")
-library("carData")
+library(readxl)
 
 # define variable for sidebar panel for fourth page (51 list)
 fourth_sidebar_content_one <- sidebarPanel(
@@ -76,13 +76,12 @@ region <- as.data.frame(list(state.name, state.region)) %>%
    rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
    rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
 
-mobility_regions <- left_join(mobility, region) %>%
-   select(State, date, region)
+mobility_regions <- left_join(mobility, region)
+
 
 deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv",
                    stringsAsFactors = F) %>%
    select(State, Percent.Excess, Total.Excess.in.2020)
 
 
-mobility_deaths <- left_join(mobility_regions, deaths) %>%
-   select(region, date)
+mobility_deaths <- left_join(mobility_regions, deaths)
