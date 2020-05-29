@@ -70,11 +70,19 @@ mobility <- read.csv("data/Global_Mobility_Report.csv",
    filter(country_region_code == "US") %>%
    filter(sub_region_1 != "") %>%
    select(-country_region_code, -country_region, -sub_region_2) %>%
-   rename(state = sub_region_1)
-mobility$regions <- sapply(mobility$states, function(x) names(region.list)[grep(x,region.list)])
+   rename(State = sub_region_1)
 
 region <- as.data.frame(list(state.name, state.region)) %>%
-   rename(state = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
+   rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
    rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
 
-mobility_regions <- left_join(mobility, region)
+mobility_regions <- left_join(mobility, region) %>%
+   select(State, date, region)
+
+deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv",
+                   stringsAsFactors = F) %>%
+   select(State, Percent.Excess, Total.Excess.in.2020)
+
+
+mobility_deaths <- left_join(mobility_regions, deaths) %>%
+   select(region, date)
