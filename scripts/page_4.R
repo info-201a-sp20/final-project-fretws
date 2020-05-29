@@ -1,7 +1,7 @@
 
 library(shiny)
 
-# define variable for sidebar panel for fourth page (51 list)
+# define variable for sidebar panel for fourth page
 fourth_sidebar_content_one <- sidebarPanel(
    checkboxInput(
       "barcheck",
@@ -43,11 +43,10 @@ fourth_panel <- tabPanel(
 )
 
 # Function for bar chart 
-death_and_mobility <- function(df_1, df_2) {
-   df_one <- df_1 %>%
-      df_two <- df_2 %>%
+death_and_mobility <- function(df) {
+   df <- df %>%
          filter(Year == 2020, State != "United States",
-                State != "District of Columbia") %>%
+                State != "District of Columbia", country_region = "United States", ) %>%
          group_by(State) %>%
          distinct(State, Total.Excess.in.2020) %>%
          summarise(
@@ -57,7 +56,7 @@ death_and_mobility <- function(df_1, df_2) {
          geom_col(mapping = aes(x = State, y = excess, fill = State)) +
          coord_flip() +
          ggtitle("Excess Death and Mobility by State in 2020") +
-         xlab("State") +
+         xlab("Region") +
          ylab("Number of Deaths and Mobility")
 }
 
