@@ -1,4 +1,9 @@
 intro_page <- tabPanel(
+   # I hope you don't mind Mariah, but I made some changes to the UI and this
+   # file that I think make the app look a lot nicer.
+   # I also think that this page would look really nice with an outline on the
+   # left (like google docs, if you've seen the document outlines they do).
+   # Just a thought; do whatever you want with it.
    title = "Summary",
 
    h1("The Effects of Mobility during the Covid Pandemic"),
