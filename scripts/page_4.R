@@ -92,4 +92,6 @@ deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv",
 
 mobility_deaths <- left_join(mobility_regions, deaths)
 
+mobility_and_deaths <- left_join(mobility, deaths, by = c(State = "State")) 
+
 
