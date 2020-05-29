@@ -5,6 +5,7 @@ side_bar <- sidebarPanel(
       inputId = "trav_cat",
       label = "Travel Category",
       choices = c(
+         # "average",
          "grocery_and_pharmacy_percent_change_from_baseline",
          "parks_percent_change_from_baseline",
          "retail_and_recreation_percent_change_from_baseline",

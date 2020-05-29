@@ -1,19 +1,21 @@
 library("dplyr")
+library("tidyr")
+library("lubridate")
 
-mobility <- read.csv("Global_Mobility_Report.csv")
+source("scripts/pg2plot.R")
+
+mobility <- read.csv("data/Global_Mobility_Report.csv")
+average_table <- aggregated_table(mobility)
 
 server <- function(input, output) {
 
 
-   output$pg2plot <- renderplot({
-      cat <- input$trav_cat
-      data <- mobility %>% select(!! as.name(cat), date)
-
-
+   output$pg2plot <- renderPlot({
+      pg2plot(data = mobility, categories = input$trav_cat)
    })
 
 
-   output$chart3 <- renderPlot({
-      plot <- plot_3(average_table)
+   output$chart3 <- renderPlotly({
+      pg3plot
    })
 }
