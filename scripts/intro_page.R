@@ -1,7 +1,7 @@
-intro_page <- fluidPage(
-   titlePanel("The Effects of Mobility during the Covid Pandemic"),
+intro_page <- tabPanel(
+   title = "Summary",
 
-   h1("Summary"),
+   h1("The Effects of Mobility during the Covid Pandemic"),
 
    p("Covid 19 has changed life as we know it. In order to better understand the effectiveness of these changes,
      we evaluated the data released by Google to track user mobility trends. These insights combined with the
