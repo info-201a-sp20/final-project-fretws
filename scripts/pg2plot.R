@@ -1,5 +1,6 @@
 # Define a function that takes in a cleaned dataset of mobility data and plots
 # trends in the given travel category over the given time frame.
+library("stringr")
 
 pg2plot <- function(data, categories) {
    if (length(categories) == 0) {
@@ -30,6 +31,11 @@ pg2plot <- function(data, categories) {
       -week
    )
 
+   legend <- categories %>%
+      str_replace("_percent_change_from_baseline", "") %>%
+      str_replace_all("_", " ") %>%
+      str_to_title() %>%
+      str_replace_all("And", "and")
 
    ggplot(averages) +
       geom_line(aes(x = week, y = avg_percent_change, color = travel_category),
@@ -37,8 +43,5 @@ pg2plot <- function(data, categories) {
       labs(x = "Week of the Year (2020)", y = "Percent Change from Baseline",
            title = "2020 Trends in USA Travel by Category",
            color = "Travel Category") +
-      scale_color_ordinal(labels =
-                            c("Grocery and Pharmacy", "Parks and Recreation",
-                              "Retail and Recreation", "Residential",
-                              "Transit Stations", "Workplaces"))
+      scale_color_ordinal(labels = legend)
 }
