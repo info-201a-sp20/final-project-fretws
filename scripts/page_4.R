@@ -3,7 +3,7 @@ library(shiny)
 library("dplyr")
 
 
-# define variable for sidebar panel for fourth page (51 list)
+# define variable for sidebar panel for fourth page
 fourth_sidebar_content_one <- sidebarPanel(
    checkboxInput(
       "barcheck",
@@ -45,12 +45,12 @@ page_4 <- tabPanel(
       fourth_main_content)
 )
 
-# Function for bar chart
+   # Function for bar chart
 death_and_mobility <- function(df_1, df_2) {
    df_one <- df_1 %>%
       df_two <- df_2 %>%
          filter(Year == 2020, State != "United States",
-                State != "District of Columbia") %>%
+                State != "District of Columbia", country_region = "United States", ) %>%
          group_by(State) %>%
          distinct(State, Total.Excess.in.2020) %>%
          summarise(
@@ -60,12 +60,12 @@ death_and_mobility <- function(df_1, df_2) {
          geom_col(mapping = aes(x = State, y = excess, fill = State)) +
          coord_flip() +
          ggtitle("Excess Death and Mobility by State in 2020") +
-         xlab("State") +
+         xlab("Region") +
          ylab("Number of Deaths and Mobility")
 }
 
 
-mobility <- read.csv("data/Global_Mobility_Report.csv",
+mobility <- read.csv("Global_Mobility_Report.csv",
                      stringsAsFactors = F) %>%
    filter(country_region_code == "US") %>%
    filter(sub_region_1 != "") %>%
@@ -86,10 +86,9 @@ region <- as.data.frame(list(state.name, state.region)) %>%
 mobility_regions <- left_join(mobility, region)
 
 
-deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv",
+deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv",
                    stringsAsFactors = F) %>%
    select(State, Percent.Excess)
 
 mobility_deaths <- left_join(mobility_regions, deaths) %>%
    select(-State)
-

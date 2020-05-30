@@ -20,8 +20,9 @@ source("scripts/summary_table.R")
 # )
 
 ui <- navbarPage(
-  "Final Deliverable",
+  title = strong("Final Deliverable"),
   intro_page,
   page_two,
-  page_three)
+  page_three,
+  inverse = T)
 
