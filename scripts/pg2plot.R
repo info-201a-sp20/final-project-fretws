@@ -14,14 +14,28 @@ pg2plot <- function(data, categories, date_range) {
          "residential_percent_change_from_baseline")
    }
 
-   grouped <- data %>%
+   # Filter down to only data in the user-selected timeframe
+   filtered <- data %>%
       mutate(date = ymd(date)) %>%
-      filter((date > date_range[1]) & (date < date_range[2])) %>%
-      mutate(week = week(date)) %>%
-      group_by(week)
+      filter((date > date_range[1]) & (date < date_range[2]))
 
+   # If the date range is small enough, plot the data by day instead of by
+   # week.
+   if (yday(date_range[2]) - yday(date_range[1]) > 15) {
+      grouped <- filtered %>%
+         mutate(time = week(date)) %>%
+         group_by(time)
+      x_axis <- "Week of the Year (2020)"
+   } else {
+      grouped <- filtered %>%
+         mutate(time = date) %>%
+         group_by(time)
+      x_axis <- "Day of the Year (2020)"
+   }
+
+   # Initialize a dataframe to then add averages to
    averages <- grouped %>%
-      select(week) %>%
+      select(time) %>%
       unique.data.frame()
 
    # Add averaged columns for each category selected by the user
@@ -34,7 +48,7 @@ pg2plot <- function(data, categories, date_range) {
    averages <- gather(averages,
       key = travel_category,
       value = avg_percent_change,
-      -week
+      -time
    )
 
    # Clean up category names for use in labels
@@ -46,14 +60,14 @@ pg2plot <- function(data, categories, date_range) {
 
    ggplot(averages) +
       geom_hline(yintercept = 0, size = 1) +
-      geom_line(aes(x = week, y = avg_percent_change, color = travel_category),
+      geom_line(aes(x = time, y = avg_percent_change, color = travel_category),
                 size = 1.25) +
       theme_dark() +
       scale_color_brewer(
          type = "qual",
          limits = categories,
          labels = legend) +
-      labs(x = "Week of the Year (2020)", y = "Percent Change from Baseline",
+      labs(x = x_axis, y = "Percent Change from Baseline",
            title = "2020 Trends in USA Travel by Category",
            color = "Travel Category")
 }
