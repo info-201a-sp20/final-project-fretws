@@ -3,6 +3,7 @@
 library("stringr")
 
 pg2plot <- function(data, categories, date_range) {
+   # If no categories have been selected, default to all categories
    if (length(categories) == 0) {
       categories <- c(
          "retail_and_recreation_percent_change_from_baseline",
@@ -23,6 +24,7 @@ pg2plot <- function(data, categories, date_range) {
       select(week) %>%
       unique.data.frame()
 
+   # Add averaged columns for each category selected by the user
    for (col in categories) {
       averages[[col]] = grouped %>%
          summarise(avg = mean(!! as.name(col), na.rm = T)) %>%
@@ -35,6 +37,7 @@ pg2plot <- function(data, categories, date_range) {
       -week
    )
 
+   # Clean up category names for use in labels
    legend <- categories %>%
       str_replace("_percent_change_from_baseline", "") %>%
       str_replace_all("_", " ") %>%

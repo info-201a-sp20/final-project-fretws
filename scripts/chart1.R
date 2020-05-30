@@ -27,8 +27,8 @@ plot_1 <- function(data) {
       key = travel_category,
       value = percent_change,
       -week
-    ) %>%
-    group_by(week, travel_category)
+    ) # %>%
+    # group_by(travel_category)
 
   ggplot(data = data_test) +
     geom_hline(yintercept = 0, size = 1) +
