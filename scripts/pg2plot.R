@@ -4,11 +4,13 @@ library("stringr")
 
 pg2plot <- function(data, categories, date_range) {
    if (length(categories) == 0) {
-      categories <- c("grocery_and_pharmacy_percent_change_from_baseline",
-                      "parks_percent_change_from_baseline",
-                      "retail_and_recreation_percent_change_from_baseline",
-                      "transit_stations_percent_change_from_baseline",
-                      "workplaces_percent_change_from_baseline")
+      categories <- c(
+         "retail_and_recreation_percent_change_from_baseline",
+         "grocery_and_pharmacy_percent_change_from_baseline",
+         "parks_percent_change_from_baseline",
+         "transit_stations_percent_change_from_baseline",
+         "workplaces_percent_change_from_baseline",
+         "residential_percent_change_from_baseline")
    }
 
    grouped <- data %>%
@@ -40,10 +42,15 @@ pg2plot <- function(data, categories, date_range) {
       str_replace_all("And", "and")
 
    ggplot(averages) +
+      geom_hline(yintercept = 0, size = 1) +
       geom_line(aes(x = week, y = avg_percent_change, color = travel_category),
                 size = 1.25) +
+      theme_dark() +
+      scale_color_brewer(
+         type = "qual",
+         limits = categories,
+         labels = legend) +
       labs(x = "Week of the Year (2020)", y = "Percent Change from Baseline",
            title = "2020 Trends in USA Travel by Category",
-           color = "Travel Category") +
-      scale_color_ordinal(labels = legend)
+           color = "Travel Category")
 }
