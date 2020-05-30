@@ -1,7 +1,7 @@
 
 library(shiny)
 library("dplyr")
-library(readxl)
+
 
 # define variable for sidebar panel for fourth page
 fourth_sidebar_content_one <- sidebarPanel(
@@ -45,6 +45,7 @@ page_4 <- tabPanel(
       fourth_main_content)
 )
 
+
 # Function for bar chart 
 death_and_mobility <- function(df) {
    df <- df %>%
@@ -52,6 +53,7 @@ death_and_mobility <- function(df) {
 
 
    
+
    # Function for bar chart
 death_and_mobility <- function(df_1, df_2) {
    df_one <- df_1 %>%
@@ -76,8 +78,15 @@ mobility <- read.csv("Global_Mobility_Report.csv",
                      stringsAsFactors = F) %>%
    filter(country_region_code == "US") %>%
    filter(sub_region_1 != "") %>%
-   select(-country_region_code, -country_region, -sub_region_2) %>%
-   rename(State = sub_region_1)
+   select(-country_region_code, -country_region, -sub_region_2, -residential_percent_change_from_baseline, -parks_percent_change_from_baseline) %>%
+   rename(State = sub_region_1) %>%
+   rowwise() %>%
+   mutate(mobility_average = mean(c(grocery_and_pharmacy_percent_change_from_baseline,
+                                    transit_stations_percent_change_from_baseline,
+                                    retail_and_recreation_percent_change_from_baseline,
+                                    workplaces_percent_change_from_baseline))) %>%
+   select(State, date, mobility_average)
+
 
 region <- as.data.frame(list(state.name, state.region)) %>%
    rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
@@ -88,9 +97,7 @@ mobility_regions <- left_join(mobility, region)
 
 deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv",
                    stringsAsFactors = F) %>%
-   select(State, Percent.Excess, Total.Excess.in.2020)
+   select(State, Percent.Excess)
 
-
-mobility_deaths <- left_join(mobility_regions, deaths)
-
-
+mobility_deaths <- left_join(mobility_regions, deaths) %>%
+   select(-State)

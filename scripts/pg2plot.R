@@ -2,7 +2,7 @@
 # trends in the given travel category over the given time frame.
 library("stringr")
 
-pg2plot <- function(data, categories) {
+pg2plot <- function(data, categories, date_range) {
    if (length(categories) == 0) {
       categories <- c("grocery_and_pharmacy_percent_change_from_baseline",
                       "parks_percent_change_from_baseline",
@@ -12,7 +12,9 @@ pg2plot <- function(data, categories) {
    }
 
    grouped <- data %>%
-      mutate(week = week(ymd(date))) %>%
+      mutate(date = ymd(date)) %>%
+      filter((date > date_range[1]) & (date < date_range[2])) %>%
+      mutate(week = week(date)) %>%
       group_by(week)
 
    averages <- grouped %>%
