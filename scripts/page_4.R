@@ -48,6 +48,7 @@ page_4 <- tabPanel(
 # Function for bar chart 
 death_and_mobility <- function(df) {
    df <- df %>%
+      filter(Year)
 
 
    
