@@ -26,7 +26,9 @@ side_bar <- sidebarPanel(
       inputId = "date_range",
       label = h3("Date Range"),
       min = "2020-02-15",
+      start = "2020-02-15",
       max = "2020-05-07",
+      end = "2020-05-07",
       format = "yyyy-mm-dd"
    )
 )

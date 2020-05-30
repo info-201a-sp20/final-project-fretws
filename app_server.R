@@ -12,7 +12,9 @@ server <- function(input, output) {
 
 
    output$pg2plot <- renderPlot({
-      pg2plot(data = mobility, categories = input$trav_cat)
+      pg2plot(data = mobility,
+              categories = input$trav_cat,
+              date_range = input$date_range)
    })
 
 
