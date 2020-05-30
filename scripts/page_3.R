@@ -1,4 +1,5 @@
 library("shiny")
+library("plotly")
 
 page_three <- tabPanel(
   "Page Three",
