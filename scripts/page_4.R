@@ -45,59 +45,15 @@ page_4 <- tabPanel(
       fourth_main_content)
 )
 
-
-# Function for bar chart 
-death_and_mobility <- function(df) {
-   df <- df %>%
-      filter(Year)
-
-
-   
-
-   # Function for bar chart
-death_and_mobility <- function(df_1, df_2) {
-   df_one <- df_1 %>%
-      df_two <- df_2 %>%
-         filter(Year == 2020, State != "United States",
-                State != "District of Columbia", country_region = "United States", ) %>%
-         group_by(State) %>%
-         distinct(State, Total.Excess.in.2020) %>%
-         summarise(
-            excess = sum(Total.Excess.in.2020, na.rm = TRUE)
-         )
-      ggplot(data = df_1, df_2) +
-         geom_col(mapping = aes(x = State, y = excess, fill = State)) +
-         coord_flip() +
-         ggtitle("Excess Death and Mobility by State in 2020") +
-         xlab("Region") +
-         ylab("Number of Deaths and Mobility")
-}
-
-
-mobility <- read.csv("Global_Mobility_Report.csv",
-                     stringsAsFactors = F) %>%
-   filter(country_region_code == "US") %>%
-   filter(sub_region_1 != "") %>%
-   select(-country_region_code, -country_region, -sub_region_2, -residential_percent_change_from_baseline, -parks_percent_change_from_baseline) %>%
-   rename(State = sub_region_1) %>%
-   rowwise() %>%
-   mutate(mobility_average = mean(c(grocery_and_pharmacy_percent_change_from_baseline,
-                                    transit_stations_percent_change_from_baseline,
-                                    retail_and_recreation_percent_change_from_baseline,
-                                    workplaces_percent_change_from_baseline))) %>%
-   select(State, date, mobility_average)
-
-
+#create data frame with regions for states
 region <- as.data.frame(list(state.name, state.region)) %>%
    rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
    rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
 
-mobility_regions <- left_join(mobility, region)
+#load deaths dataset
+deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
 
-
-deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv",
-                   stringsAsFactors = F) %>%
-   select(State, Percent.Excess)
-
-mobility_deaths <- left_join(mobility_regions, deaths) %>%
-   select(-State)
+#combine add regions to deaths dataset and filter unneeded columns
+deaths <- deaths %>%
+   left_join(region) %>%
+   select(Week.Ending.Date, State, region, Excess)
