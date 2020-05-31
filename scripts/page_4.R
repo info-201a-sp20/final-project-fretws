@@ -49,12 +49,23 @@ page_4 <- tabPanel(
 # Function for bar chart 
 death_and_mobility <- function(df) {
    df <- df %>%
-      filter(Year)
-
-
+      group_by(region) %>%
+      distinct(region, date, Percent.Excess, mobility_average) %>%
+      summarise(
+         sum(Excess_Death = Percent.Excess),
+         sum(Mobility = mobility_average)
+      ) %>%
+   ggplot(data = df) +
+      geom_bar(mapping = aes(x = region, y = Percent.Excess + Average.Mobility,
+                             fill = Percent.Excess + Average.Mobility) +
+                  coord_flip() +
+                  ggtitle("Excess Death and Mobility by Region") +
+                  xlab("Region") +
+                  ylab("Excess Death and Average Mobility"))
+}
    
 
-   # Function for bar chart
+   # Function for bar chart (extra code)
 death_and_mobility <- function(df_1, df_2) {
    df_one <- df_1 %>%
       df_two <- df_2 %>%
