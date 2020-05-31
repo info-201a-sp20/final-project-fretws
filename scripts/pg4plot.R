@@ -14,6 +14,10 @@ deaths <- deaths %>%
 # function that outputs a bar graph for each state for the selected region
 # depicting the number of deaths for the week selected
 build_bar <- function(data, region, day) {
+   date <- as.Date(day, format="yyyy-mm-dd")
+   next.days <- seq(date, date + 7, by='day')
+   week_end_date = next.days[weekdays(next.days)=='Saturday']
+
   data <- data %>%
     # filter to only display states in the selected region
     filter(region == region) %>%
@@ -22,11 +26,9 @@ build_bar <- function(data, region, day) {
     summarise(
       excess = sum(Excess, na.rm = TRUE)
     )%>%
-  #filter to the week of selected input rounding to nearest saturday
-    mutate(date = as.Date(day)) %>% #getting error message
-    filter(day) #still needs to filter to closest day
-  
-  #plot the selected data  
+    filter(Week.Ending.Date == format(week_end_date, "%m/%d/%Y")) #filter to the week of selected input rounding to nearest saturday
+
+  #plot the selected data
   ggplot(data) +
     geom_col(mapping = aes(x = State, y = excess, fill = State)) +
     coord_flip()+
@@ -34,4 +36,3 @@ build_bar <- function(data, region, day) {
     xlab("States") +
     ylab("Number of Deaths")
 }
-build_bar(deaths, North, "2020-01-04")
