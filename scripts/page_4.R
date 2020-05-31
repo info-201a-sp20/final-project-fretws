@@ -7,8 +7,14 @@ library(stringr)
 fourth_sidebar_content_one <- sidebarPanel(
    selectInput(
       "barcheck",
+      inputId =
       label = "Select Region",
-      value = list("North", "NorthEast", "NorthCentral", "West", "East", "South"
+      choices = list("North" = "North",
+                     "NorthEast" = "NorthEast",
+                     "MidWest" = "NorthCentral",
+                     "West" = "West",
+                     "East" = "East",
+                     "South" = "South"
       )
    )
 )
@@ -23,7 +29,7 @@ fourth_sidebar_content_two <- sidebarPanel(
 )
 # define variable for main panel for fourth page
 fourth_main_content <- mainPanel(
-   "Page Four",
+   "Page Three",
    plotlyOutput("bar")
 )
 
@@ -49,3 +55,9 @@ deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactor
 deaths <- deaths %>%
    left_join(region) %>%
    select(Week.Ending.Date, State, region, Excess)
+
+# function that outputs a bar graph for each state for the selected region
+# depicting the number of deaths for the week selected
+bar <- function(df) {
+
+}
