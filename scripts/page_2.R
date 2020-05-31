@@ -7,7 +7,7 @@ choiceValues <- c(
    "workplaces_percent_change_from_baseline")
 
 choiceNames <- choiceValues %>%
-      str_replace("_percent_change_from_baseline", "") %>%
+      str_replace("percent_change_from_baseline", "") %>%
       str_replace_all("_", " ") %>%
       str_to_title() %>%
       str_replace_all("And", "and")
