@@ -11,8 +11,8 @@ fourth_sidebar_content <- sidebarPanel(
       "barcheck",
       inputId = "sel_reg",
       label = "Select Region",
-      choices = list("Northeast" = "Northeast",
-                     "MidWest" = "North Central",
+      choices = list("East" = "Northeast",
+                     "North" = "North Central",
                      "West" = "West",
                      "South" = "South"
       )
@@ -20,10 +20,9 @@ fourth_sidebar_content <- sidebarPanel(
    dateInput(
       inputId = "sel_date",
       label = "Select Date Range",
-      start = "2020-01-04",
       min = "2020-01-01",
       max = "2020-01-07",
-      format = "mm/dd/yyyy"
+      format = "yyyy-mm-dd"
    )
 )
 
