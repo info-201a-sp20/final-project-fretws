@@ -66,15 +66,6 @@ death_and_mobility <- function(df) {
    
 death_and_mobility(mobility_deaths)
 
-# Practice Function 
-mobility <- function(df, date_range, region) {
-   df_2 <- df %>%
-      filter(date == date_range) %>%
-}
-
-
-
-
 
 mobility <- read.csv("Global_Mobility_Report.csv",
                      stringsAsFactors = F) %>%
