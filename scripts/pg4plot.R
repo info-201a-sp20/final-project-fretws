@@ -14,7 +14,7 @@ deaths <- deaths %>%
 # function that outputs a bar graph for each state for the selected region
 # depicting the number of deaths for the week selected
 build_bar <- function(data, region, day) {
-   date <- as.Date(parse_date_time(day,"dmy"))
+   date <- as.Date(parse_date_time(day,"mdy"))
    next.days <- seq(date, date + 7, by='day')
    week_end_date = next.days[weekdays(next.days)=='Saturday']
 

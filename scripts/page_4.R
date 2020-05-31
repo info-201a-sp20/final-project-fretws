@@ -33,8 +33,7 @@ fourth_main_content <- mainPanel(
 
 # define a variable for a panel to hold the content for the fourth page
 page_four <- tabPanel(
-   "bar",
-   titlePanel("Death Impact"),
+   "Death Impact",
    sidebarLayout(
       fourth_sidebar_content,
       fourth_main_content)
