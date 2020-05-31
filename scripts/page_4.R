@@ -48,41 +48,30 @@ page_4 <- tabPanel(
 
 # Function for bar chart 
 death_and_mobility <- function(df) {
-   df <- df %>%
+   df_1 <- df %>%
       group_by(region) %>%
-      distinct(region, date, Percent.Excess, mobility_average) %>%
       summarise(
-         sum(Excess_Death = Percent.Excess),
-         sum(Mobility = mobility_average)
+         mean(Excess_Death = Percent.Excess),
+         mean(Mobility = mobility_average)
       ) %>%
    ggplot(data = df) +
-      geom_bar(mapping = aes(x = region, y = Percent.Excess + Average.Mobility,
-                             fill = Percent.Excess + Average.Mobility) +
-                  coord_flip() +
-                  ggtitle("Excess Death and Mobility by Region") +
-                  xlab("Region") +
-                  ylab("Excess Death and Average Mobility"))
+      geom_bar(aes(x = region, y = Mobility,
+                             fill = Percent.Excess)) +
+                  labs( x = "Region", y = "Excess Death and Average Mobility", 
+                        title = "Excess Death and Mobility by Region") 
 }
    
+death_and_mobility(mobility_deaths)
 
-   # Function for bar chart (extra code)
-death_and_mobility <- function(df_1, df_2) {
-   df_one <- df_1 %>%
-      df_two <- df_2 %>%
-         filter(Year == 2020, State != "United States",
-                State != "District of Columbia", country_region = "United States", ) %>%
-         group_by(State) %>%
-         distinct(State, Total.Excess.in.2020) %>%
-         summarise(
-            excess = sum(Total.Excess.in.2020, na.rm = TRUE)
-         )
-      ggplot(data = df_1, df_2) +
-         geom_col(mapping = aes(x = State, y = excess, fill = State)) +
-         coord_flip() +
-         ggtitle("Excess Death and Mobility by State in 2020") +
-         xlab("Region") +
-         ylab("Number of Deaths and Mobility")
+# Practice Function 
+mobility <- function(df, date_range, region) {
+   df_2 <- df %>%
+      filter(date == date_range) %>%
+      
 }
+
+
+
 
 
 mobility <- read.csv("Global_Mobility_Report.csv",
