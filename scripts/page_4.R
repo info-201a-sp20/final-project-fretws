@@ -5,23 +5,15 @@ library(stringr)
 
 # define variable for sidebar panel for fourth page
 fourth_sidebar_content_one <- sidebarPanel(
-   checkboxInput(
+   selectInput(
       "barcheck",
-      label = "Select State",
-      value = list("Alabama", "Alaska", "Arizona", "Arkansa", "California",
-                   "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida",
-                   "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
-                   "Kentucky", "Louisana", "Maine", "Maryland", "Massachusetts", "Michigan",
-                   "Minnesota", "Mississppi", "Missouri", "Montana", "Nebraska", "Nevada",
-                   "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
-                   "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
-                   "South Carolina", "South Dakota", "Tennesse", "Texas", "Utah", "Vermont",
-                   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+      label = "Select Region",
+      value = list("North", "NorthEast", "NorthCentral", "West", "East", "South"
       )
    )
 )
 fourth_sidebar_content_two <- sidebarPanel(
-   dateRangeInput(
+   dateInput(
    label = "Select Date Range",
    start = "01/04/2020",
    min = "2020-02-15",
@@ -31,7 +23,7 @@ fourth_sidebar_content_two <- sidebarPanel(
 )
 # define variable for main panel for fourth page
 fourth_main_content <- mainPanel(
-   "Page Three",
+   "Page Four",
    plotlyOutput("bar")
 )
 
