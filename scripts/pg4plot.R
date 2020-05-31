@@ -36,4 +36,3 @@ build_bar <- function(data, region, day) {
     xlab("States") +
     ylab("Number of Deaths")
 }
-build_bar(deaths, North, "2020-01-04")
