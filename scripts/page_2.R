@@ -1,13 +1,14 @@
 choiceValues <- c(
    # "average",
+   "retail_and_recreation_percent_change_from_baseline",
    "grocery_and_pharmacy_percent_change_from_baseline",
    "parks_percent_change_from_baseline",
-   "retail_and_recreation_percent_change_from_baseline",
    "transit_stations_percent_change_from_baseline",
-   "workplaces_percent_change_from_baseline")
+   "workplaces_percent_change_from_baseline",
+   "residential_percent_change_from_baseline")
 
 choiceNames <- choiceValues %>%
-      str_replace("_percent_change_from_baseline", "") %>%
+      str_replace("percent_change_from_baseline", "") %>%
       str_replace_all("_", " ") %>%
       str_to_title() %>%
       str_replace_all("And", "and")

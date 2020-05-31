@@ -1,7 +1,7 @@
 
 library(shiny)
 library("dplyr")
-
+library(stringr)
 
 # define variable for sidebar panel for fourth page
 fourth_sidebar_content_one <- sidebarPanel(
