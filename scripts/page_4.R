@@ -2,12 +2,14 @@
 library(shiny)
 library("dplyr")
 library(stringr)
+library(plotly)
+library(ggplot2)
 
 # define variable for sidebar panel for fourth page
 fourth_sidebar_content_one <- sidebarPanel(
    selectInput(
       "barcheck",
-      inputId =
+      inputId = "sel_reg",
       label = "Select Region",
       choices = list("North" = "North",
                      "NorthEast" = "NorthEast",
@@ -18,8 +20,10 @@ fourth_sidebar_content_one <- sidebarPanel(
       )
    )
 )
+
 fourth_sidebar_content_two <- sidebarPanel(
    dateInput(
+   inputId = "sel_date",
    label = "Select Date Range",
    start = "01/04/2020",
    min = "2020-02-15",
@@ -27,6 +31,7 @@ fourth_sidebar_content_two <- sidebarPanel(
    format = "yyyy-mm-dd"
    )
 )
+
 # define variable for main panel for fourth page
 fourth_main_content <- mainPanel(
    "Page Three",
@@ -36,28 +41,9 @@ fourth_main_content <- mainPanel(
 # define a variable for a panel to hold the content for the fourth page
 page_4 <- tabPanel(
    "bar",
-   titlePanel("State Effectiveness"),
+   titlePanel("Death Impact"),
    sidebarLayout(
       fourth_sidebar_content,
       fourth_sidebar_content_two,
       fourth_main_content)
 )
-
-#create data frame with regions for states
-region <- as.data.frame(list(state.name, state.region)) %>%
-   rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
-   rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
-
-#load deaths dataset
-deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
-
-#combine add regions to deaths dataset and filter unneeded columns
-deaths <- deaths %>%
-   left_join(region) %>%
-   select(Week.Ending.Date, State, region, Excess)
-
-# function that outputs a bar graph for each state for the selected region
-# depicting the number of deaths for the week selected
-bar <- function(df) {
-
-}
