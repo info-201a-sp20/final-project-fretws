@@ -4,6 +4,7 @@ library("lubridate")
 library(stringr)
 
 source("scripts/pg2plot.R")
+source("scripts/pg4plot.R")
 source("scripts/chart3.R")
 
 mobility <- read.csv("data/Global_Mobility_Report.csv")

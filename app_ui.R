@@ -1,5 +1,7 @@
 #load shiny library
 library("shiny")
+library("dplyr")
+library("stringr")
 
 source("scripts/intro_page.R")
 source("scripts/summary_page.R")
