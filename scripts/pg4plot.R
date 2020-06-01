@@ -14,10 +14,10 @@ deaths <- deaths %>%
 # function that outputs a bar graph for each state for the selected region
 # depicting the number of deaths for the week selected
 build_bar <- function(data, region, day) {
-   date <- as.Date(day, format="yyyy-mm-dd", origin="2020-04-01")
-   date <- as.Date(parse_date_time(day,"mdy"))
-   next.days <- seq(date, date + 7, by='day')
-   week_end_date = next.days[weekdays(next.days)=='Saturday']
+   date <- as.Date(day, format="yyyy-mm-dd", origin= "1970-01-01")
+   date <- as.Date(parse_date_time(day, "mdy"))
+   next.days <- seq(as.Date(2017/12/20, origin= "1970-01-01"), as.Date(2020/01/04), length.out = 7, origin= "1970-01-01")
+   week_end_date = next.days[weekdays(next.days) =='Saturday']
 
   data <- data %>%
     # filter to only display states in the selected region
@@ -39,6 +39,6 @@ build_bar <- function(data, region, day) {
   return(p)
 }
 
-build_bar(deaths, South, 01-04-2020)
+build_bar(deaths, South, 02/01/2020)
 
 
