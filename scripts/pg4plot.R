@@ -1,3 +1,4 @@
+
 library(dplyr)
 library(lubridate)
 library(ggplot2)
@@ -9,7 +10,7 @@ region <- as.data.frame(list(state.name, state.region)) %>%
 #load deaths dataset
 deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
 
-#combine add regions to deaths dataset and filter unneeded columns
+# combine add regions to deaths dataset and filter unneeded columns
 deaths <- deaths %>%
   left_join(region) %>%
   select(Week.Ending.Date, State, region, Excess) %>%
@@ -18,6 +19,7 @@ deaths <- deaths %>%
 # function that outputs a bar graph for each state for the selected region
 # depicting the number of deaths for the week selected
 build_bar <- function(data, region_input, day) {
+   #date <- mdy(day)
    #dates <- seq.Date(as.Date("2020-01-01"), as.Date("2020-05-31"), by = 1)
    #week_end_date <- floor_date(date, unit = "week", week_start = 6)
 
@@ -35,7 +37,6 @@ build_bar <- function(data, region_input, day) {
         excess = sum(Excess, na.rm = TRUE)
      )
 
-
   #plot the selected data
   p <- ggplot(data) +
     geom_col(mapping = aes(x = State, y = excess, fill = State)) +
@@ -45,5 +46,3 @@ build_bar <- function(data, region_input, day) {
     ylab("Number of Deaths")
   return(p)
 }
-
-build_bar(deaths, "South", "04/04/2020")
