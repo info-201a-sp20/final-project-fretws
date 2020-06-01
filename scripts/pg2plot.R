@@ -21,7 +21,9 @@ pg2plot <- function(data, categories, date_range) {
 
    # If the date range is small enough, plot the data by day instead of by
    # week.
-   if (yday(date_range[2]) - yday(date_range[1]) > 15) {
+   course_data <- yday(date_range[2]) - yday(date_range[1]) > 15
+
+   if (course_data) {
       grouped <- filtered %>%
          mutate(time = week(date)) %>%
          group_by(time)
@@ -58,7 +60,7 @@ pg2plot <- function(data, categories, date_range) {
       str_to_title() %>%
       str_replace_all("And", "and")
 
-   ggplot(averages) +
+   plt <- ggplot(averages) +
       geom_hline(yintercept = 0, size = 1) +
       geom_line(aes(x = time, y = avg_percent_change, color = travel_category),
                 size = 1.25) +
@@ -70,4 +72,29 @@ pg2plot <- function(data, categories, date_range) {
       labs(x = x_axis, y = "Percent Change from Baseline",
            title = "2020 Trends in USA Travel by Category",
            color = "Travel Category")
+
+   # if (course_data) {
+   #    date_range[1] <- week(ymd(date_range[1]))
+   #    date_range[2] <- week(ymd(date_range[2]))
+   #    apple_data_release <- week(ymd("2020-4-14"))
+   #    google_data_release <- week(ymd("2020-4-03"))
+   # } else {
+   #    date_range[1] <- yday(ymd(date_range[1]))
+   #    date_range[2] <- yday(ymd(date_range[2]))
+   #    apple_data_release <- yday(ymd("2020-4-14"))
+   #    google_data_release <- yday(ymd("2020-4-03"))
+   # }
+
+   # if ((date_range[1] < apple_data_release) &
+   #     (date_range[2] > apple_data_release)) {
+   #    plt <- plt +
+   #       geom_vline(xintercept = apple_data_release)
+   # }
+   # if ((date_range[1] < google_data_release) &
+   #     (date_range[2] > google_data_release)) {
+   #    plt <- plt +
+   #       geom_vline(xintercept = google_data_release)
+   # }
+
+   plt
 }
