@@ -23,7 +23,7 @@ build_bar <- function(data, region_input, day) {
    #dates <- seq.Date(as.Date("2020-01-01"), as.Date("2020-05-31"), by = 1)
    #week_end_date <- floor_date(date, unit = "week", week_start = 6)
 
-   date <- as.Date(parse_date_time(day, "mdy"))
+   date <- as.Date(parse_date_time(day, "ymd"))
    next.days <- seq(date, date + 6, by='day')
    week_end_date = next.days[weekdays(next.days)=='Saturday']
 
@@ -46,3 +46,4 @@ build_bar <- function(data, region_input, day) {
     ylab("Number of Deaths")
   return(p)
 }
+

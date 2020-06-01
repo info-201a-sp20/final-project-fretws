@@ -1,6 +1,7 @@
 library("dplyr")
 library("tidyr")
 library("lubridate")
+library(stringr)
 
 source("scripts/pg2plot.R")
 source("scripts/chart3.R")
