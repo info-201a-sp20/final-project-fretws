@@ -21,7 +21,7 @@ fourth_sidebar_content <- sidebarPanel(
       inputId = "sel_date",
       label = "Select Date Range",
       min = "2020-01-01",
-      max = "2020-05-31",
+      max = "2020-04-25",
       format = "yyyy-mm-dd",
       daysofweekdisabled = 0:5
    )
