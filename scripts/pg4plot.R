@@ -14,7 +14,7 @@ deaths <- deaths %>%
 # function that outputs a bar graph for each state for the selected region
 # depicting the number of deaths for the week selected
 build_bar <- function(data, region, day) {
-   date <- as.Date(day, format="yyyy-mm-dd")
+   date <- as.Date(day, format="yyyy-mm-dd", origin="2020-04-01")
    next.days <- seq(date, date + 7, by='day')
    week_end_date = next.days[weekdays(next.days)=='Saturday']
 
@@ -36,3 +36,7 @@ build_bar <- function(data, region, day) {
     xlab("States") +
     ylab("Number of Deaths")
 }
+
+build_bar(deaths, South, 01-04-2020)
+
+
