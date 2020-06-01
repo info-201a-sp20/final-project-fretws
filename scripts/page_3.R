@@ -6,17 +6,19 @@ third_sidebar_content <-
    sidebarPanel(
       dateRangeInput(
          "date_page_3",
-         label = "Select Date",
-         start = as.Date("2020-02-15"),
-         min = as.Date("2020-02-15"),
-         max = as.Date("2020-05-07")
+         label = h3("Date Range"),
+         min = "2020-02-15",
+         start = "2020-02-15",
+         max = "2020-05-07",
+         end = "2020-05-07",
+         format = "yyyy-mm-dd"
       )
    )
 
 #define a variable for the main panel of the third page
 third_main_content <- mainPanel(
    plotlyOutput(
-      "chart3"
+      outputId = "chart3"
    ),
 
    p("In order to better understand how the travel habits changed by location,
