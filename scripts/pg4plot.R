@@ -1,12 +1,12 @@
-#create data frame with regions for states
+# create data frame with regions for states
 region <- as.data.frame(list(state.name, state.region)) %>%
   rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
   rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
 
-#load deaths dataset
+# load deaths dataset
 deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
 
-#combine add regions to deaths dataset and filter unneeded columns
+# combine add regions to deaths dataset and filter unneeded columns
 deaths <- deaths %>%
   left_join(region) %>%
   select(Week.Ending.Date, State, region, Excess)
@@ -16,7 +16,7 @@ deaths <- deaths %>%
 build_bar <- function(data, region, day) {
    date <- as.Date(day, format="yyyy-mm-dd", origin= "1970-01-01")
    date <- as.Date(parse_date_time(day, "mdy"))
-   next.days <- seq(as.Date(2017/12/20, origin= "1970-01-01"), as.Date(2020/01/04), length.out = 7, origin= "1970-01-01")
+   next.days <- seq(as.Date("12/20/2017", "%m/%d/%y"), as.Date("12/20/2017", "%m/%d/%y")+7, by="day")
    week_end_date = next.days[weekdays(next.days) =='Saturday']
 
   data <- data %>%
@@ -27,8 +27,8 @@ build_bar <- function(data, region, day) {
     summarise(
       excess = sum(Excess, na.rm = TRUE)
     )%>%
-    filter(Week.Ending.Date == week_end_date) #filter to the week of selected input rounding to nearest saturday
-
+    filter(Week.Ending.Date == week_end_date) # filter to the week of selected input rounding to nearest saturday
+  
   #plot the selected data
   p <- ggplot(data) +
     geom_col(mapping = aes(x = State, y = excess, fill = State)) +
@@ -39,6 +39,6 @@ build_bar <- function(data, region, day) {
   return(p)
 }
 
-build_bar(deaths, South, 02/01/2020)
-
+# Call the function
+build_bar(deaths, "South", "2017-12-20")
 
