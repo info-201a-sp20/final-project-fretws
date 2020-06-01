@@ -19,7 +19,8 @@ server <- function(input, output) {
 
    output$chart3 <- renderPlotly({
       # It makes more sense to call plot_3 here, right?
-      plot_3(average_table)
+      plot_3(data = average_table,
+             date_select = input$date_page_3)
       # pg3plot
    })
 
