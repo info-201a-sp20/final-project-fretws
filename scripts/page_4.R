@@ -23,7 +23,7 @@ fourth_sidebar_content <- sidebarPanel(
       min = "2020-01-01",
       max = "2020-01-07",
       format = "yyyy-mm-dd",
-      daysofweekdisabled = range(0, 6)
+      daysofweekdisabled = 0:5
    )
 )
 
