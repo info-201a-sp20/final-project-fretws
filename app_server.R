@@ -31,6 +31,6 @@ server <- function(input, output) {
 
 
    output$chart3 <- renderPlotly({
-      pg3plot
+      shinyPlot_3(mobility, input$date_page_3)
    })
 }
