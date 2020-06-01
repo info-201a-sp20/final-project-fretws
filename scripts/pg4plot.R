@@ -15,6 +15,7 @@ deaths <- deaths %>%
 # depicting the number of deaths for the week selected
 build_bar <- function(data, region, day) {
    date <- as.Date(day, format="yyyy-mm-dd", origin="2020-04-01")
+   date <- as.Date(parse_date_time(day,"mdy"))
    next.days <- seq(date, date + 7, by='day')
    week_end_date = next.days[weekdays(next.days)=='Saturday']
 
@@ -26,15 +27,16 @@ build_bar <- function(data, region, day) {
     summarise(
       excess = sum(Excess, na.rm = TRUE)
     )%>%
-    filter(Week.Ending.Date == format(week_end_date, "%m/%d/%Y")) #filter to the week of selected input rounding to nearest saturday
+    filter(Week.Ending.Date == week_end_date) #filter to the week of selected input rounding to nearest saturday
 
   #plot the selected data
-  ggplot(data) +
+  p <- ggplot(data) +
     geom_col(mapping = aes(x = State, y = excess, fill = State)) +
     coord_flip()+
     ggtitle("Excess Death by State in 2020") +
     xlab("States") +
     ylab("Number of Deaths")
+  return(p)
 }
 
 build_bar(deaths, South, 01-04-2020)
