@@ -1,33 +1,40 @@
+library(dplyr)
+library(lubridate)
+library(ggplot2)
 #create data frame with regions for states
 region <- as.data.frame(list(state.name, state.region)) %>%
   rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
   rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
 
 #load deaths dataset
-deaths <- read.csv("Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
+deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
 
 #combine add regions to deaths dataset and filter unneeded columns
 deaths <- deaths %>%
   left_join(region) %>%
-  select(Week.Ending.Date, State, region, Excess)
+  select(Week.Ending.Date, State, region, Excess) %>%
+   mutate(Saturday = mdy(Week.Ending.Date))
 
 # function that outputs a bar graph for each state for the selected region
 # depicting the number of deaths for the week selected
-build_bar <- function(data, region, day) {
-   date <- as.Date(day, format="yyyy-mm-dd", origin= "1970-01-01")
+build_bar <- function(data, region_input, day) {
+   #dates <- seq.Date(as.Date("2020-01-01"), as.Date("2020-05-31"), by = 1)
+   #week_end_date <- floor_date(date, unit = "week", week_start = 6)
+
    date <- as.Date(parse_date_time(day, "mdy"))
-   next.days <- seq(as.Date(2017/12/20, origin= "1970-01-01"), as.Date(2020/01/04), length.out = 7, origin= "1970-01-01")
-   week_end_date = next.days[weekdays(next.days) =='Saturday']
+   next.days <- seq(date, date + 6, by='day')
+   week_end_date = next.days[weekdays(next.days)=='Saturday']
 
   data <- data %>%
-    # filter to only display states in the selected region
-    filter(region == region) %>%
-    group_by(State) %>%
-    distinct(State, Excess) %>%
-    summarise(
-      excess = sum(Excess, na.rm = TRUE)
-    )%>%
-    filter(Week.Ending.Date == week_end_date) #filter to the week of selected input rounding to nearest saturday
+     # filter to only display states in the selected region
+     filter(region == region_input) %>%
+     filter(Saturday == week_end_date) %>% #filter to the week of selected input rounding to nearest saturday
+     group_by(State) %>%
+     distinct(State, Excess) %>%
+     summarise(
+        excess = sum(Excess, na.rm = TRUE)
+     )
+
 
   #plot the selected data
   p <- ggplot(data) +
@@ -39,6 +46,4 @@ build_bar <- function(data, region, day) {
   return(p)
 }
 
-build_bar(deaths, South, 02/01/2020)
-
-
+build_bar(deaths, "South", "04/04/2020")

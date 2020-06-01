@@ -24,7 +24,7 @@ server <- function(input, output) {
 
    output$pg4plot <- renderPlot({
       build_bar(data = deaths,
-                region = input$sel_reg,
+                region_input = input$sel_reg,
                 day = input$sel_date)
    })
 }
