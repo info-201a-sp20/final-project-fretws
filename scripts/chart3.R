@@ -7,12 +7,13 @@ library("dplyr")
 library("plotly")
 library("ggplot2")
 
-plot_3 <- function(data) {
+plot_3 <- function(data, date_select) {
 
    usa <- map_data(map = "state") %>%
       select(-subregion) %>%
       mutate(region = stringr::str_to_title(region))
    df <- left_join(usa, data, by = c("region" = "sub_region_1")) %>%
+      filter(date == date_select) %>%
       mutate(all_categories =
                 grocery_and_pharmacy_percent_change_from_baseline +
                 parks_percent_change_from_baseline +

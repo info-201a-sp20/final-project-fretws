@@ -1,9 +1,9 @@
 
-library(shiny)
+library("shiny")
 library("dplyr")
-library(stringr)
-library(plotly)
-library(ggplot2)
+library("stringr")
+library("plotly")
+library("ggplot2")
 
 # define variable for sidebar panel for fourth page
 fourth_sidebar_content <- sidebarPanel(
@@ -21,7 +21,7 @@ fourth_sidebar_content <- sidebarPanel(
       inputId = "sel_date",
       label = "Select Date Range",
       min = "2020-01-01",
-      max = "2020-01-07",
+      max = "2020-05-31",
       format = "yyyy-mm-dd",
       daysofweekdisabled = 0:5
    )

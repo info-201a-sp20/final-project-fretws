@@ -4,7 +4,7 @@ library("plotly")
 #define variable for the sidebar of the third page
 third_sidebar_content <-
    sidebarPanel(
-      dateInput(
+      dateRangeInput(
          "date_page_3",
          label = "Select Date",
          start = as.Date("2020-02-15"),
