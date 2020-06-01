@@ -1,0 +1,100 @@
+# Define a function that takes in a cleaned dataset of mobility data and plots
+# trends in the given travel category over the given time frame.
+library("stringr")
+
+pg2plot <- function(data, categories, date_range) {
+   # If no categories have been selected, default to all categories
+   if (length(categories) == 0) {
+      categories <- c(
+         "retail_and_recreation_percent_change_from_baseline",
+         "grocery_and_pharmacy_percent_change_from_baseline",
+         "parks_percent_change_from_baseline",
+         "transit_stations_percent_change_from_baseline",
+         "workplaces_percent_change_from_baseline",
+         "residential_percent_change_from_baseline")
+   }
+
+   # Filter down to only data in the user-selected timeframe
+   filtered <- data %>%
+      mutate(date = ymd(date)) %>%
+      filter((date > date_range[1]) & (date < date_range[2]))
+
+   # If the date range is small enough, plot the data by day instead of by
+   # week.
+   course_data <- yday(date_range[2]) - yday(date_range[1]) > 15
+
+   if (course_data) {
+      grouped <- filtered %>%
+         mutate(time = week(date)) %>%
+         group_by(time)
+      x_axis <- "Week of the Year (2020)"
+   } else {
+      grouped <- filtered %>%
+         mutate(time = date) %>%
+         group_by(time)
+      x_axis <- "Day of the Year (2020)"
+   }
+
+   # Initialize a dataframe to then add averages to
+   averages <- grouped %>%
+      select(time) %>%
+      unique.data.frame()
+
+   # Add averaged columns for each category selected by the user
+   for (col in categories) {
+      averages[[col]] = grouped %>%
+         summarise(avg = mean(!! as.name(col), na.rm = T)) %>%
+         pull(avg)
+   }
+
+   averages <- gather(averages,
+      key = travel_category,
+      value = avg_percent_change,
+      -time
+   )
+
+   # Clean up category names for use in labels
+   legend <- categories %>%
+      str_replace("_percent_change_from_baseline", "") %>%
+      str_replace_all("_", " ") %>%
+      str_to_title() %>%
+      str_replace_all("And", "and")
+
+   plt <- ggplot(averages) +
+      geom_hline(yintercept = 0, size = 1) +
+      geom_line(aes(x = time, y = avg_percent_change, color = travel_category),
+                size = 1.25) +
+      theme_dark() +
+      scale_color_brewer(
+         type = "qual",
+         limits = categories,
+         labels = legend) +
+      labs(x = x_axis, y = "Percent Change from Baseline",
+           title = "2020 Trends in USA Travel by Category",
+           color = "Travel Category")
+
+   # if (course_data) {
+   #    date_range[1] <- week(ymd(date_range[1]))
+   #    date_range[2] <- week(ymd(date_range[2]))
+   #    apple_data_release <- week(ymd("2020-4-14"))
+   #    google_data_release <- week(ymd("2020-4-03"))
+   # } else {
+   #    date_range[1] <- yday(ymd(date_range[1]))
+   #    date_range[2] <- yday(ymd(date_range[2]))
+   #    apple_data_release <- yday(ymd("2020-4-14"))
+   #    google_data_release <- yday(ymd("2020-4-03"))
+   # }
+
+   # if ((date_range[1] < apple_data_release) &
+   #     (date_range[2] > apple_data_release)) {
+   #    plt <- plt +
+   #       geom_vline(xintercept = apple_data_release)
+   # }
+   # if ((date_range[1] < google_data_release) &
+   #     (date_range[2] > google_data_release)) {
+   #    plt <- plt +
+   #       geom_vline(xintercept = google_data_release)
+   # }
+
+   plt
+}
