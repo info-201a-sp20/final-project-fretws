@@ -20,9 +20,13 @@ deaths <- deaths %>%
 build_bar <- function(data, region_input, day_input) {
 
   filtered <- data %>%
+   # date <- as.Date(parse_date_time(day, "ymd"))
+   # next.days <- seq.Date(as.Date("2020-01-01"), as.Date("2020-04-25"), by = 1)
+   # week_end_date = next.days[weekdays(next.days)=='Saturday']
+
      # filter to only display states in the selected region
      filter(Region == region_input) %>%
-     filter(date == input_day) %>% #filter the selected input day
+     filter(date == day_input) %>% #filter the selected input day
      group_by(State) %>%
      distinct(State, date) %>%
      summarise(

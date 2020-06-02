@@ -1,5 +1,7 @@
 library("shiny")
+library("dplyr")
 library("plotly")
+library("ggplot2")
 
 #define variable for the sidebar of the third page
 third_sidebar_content <-
@@ -23,9 +25,7 @@ third_main_content <- mainPanel(
 
    p("In order to better understand how the travel habits changed by location,
      we paired a date widget with an interactive map. The stay at home order beginning__,
-     the changes can be seen by location.")
-)
-
+     the changes can be seen by location."))
 
 #define a variable that takes in the contents for the third page
 page_three <- tabPanel(
