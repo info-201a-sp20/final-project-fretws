@@ -4,6 +4,7 @@ library("lubridate")
 library("stringr")
 
 source("scripts/pg2plot.R")
+source("scripts/pg3plot.R")
 source("scripts/pg4plot.R")
 
 mobility <- read.csv("data/Global_Mobility_Report.csv")
@@ -17,11 +18,10 @@ server <- function(input, output) {
               date_range = input$date_range)
    })
 
-   output$chart3 <- renderPlotly({
-      # It makes more sense to call plot_3 here, right?
-      plot_3(data = average_table,
+   output$pgplot <- renderPlotly({
+      pg_3_plot(data = mobility,
              date_select = input$date_page_3)
-      # pg3plot
+
    })
    output$pg4plot <- renderPlot({
       build_bar(data = deaths,

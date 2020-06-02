@@ -20,7 +20,7 @@ third_sidebar_content <-
 #define a variable for the main panel of the third page
 third_main_content <- mainPanel(
    plotlyOutput(
-      outputId = "chart3"
+      outputId = "pg3plot"
    ),
 
    p("In order to better understand how the travel habits changed by location,

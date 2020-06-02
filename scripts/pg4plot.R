@@ -3,6 +3,7 @@ library("dplyr")
 library("lubridate")
 library("ggplot2")
 #create data frame with regions for states
+
 USregions <- as.data.frame(list(state.name, state.region)) %>%
   `colnames<-`(c("State", "Region"))
 
@@ -24,9 +25,13 @@ build_bar <- function(data, region_input, day_input) {
    # next.days <- seq.Date(as.Date("2020-01-01"), as.Date("2020-04-25"), by = 1)
    # week_end_date = next.days[weekdays(next.days)=='Saturday']
 
+     #date <- as.Date(parse_date_time(day, "ymd"))
+     #next_days <- seq.Date(as.Date("2020-01-01"), as.Date("2020-05-31"), by = 1)
+     #week_end_date = next_days[weekdays(next_days)=='Saturday']
+
      # filter to only display states in the selected region
      filter(Region == region_input) %>%
-     # filter(date == day_input) %>% #filter the selected input day
+     dplyr::filter(date == day_input) %>% #filter the selected input day
      group_by(State) %>%
      summarise(
         excess = sum(Excess, na.rm = TRUE)
@@ -41,3 +46,4 @@ build_bar <- function(data, region_input, day_input) {
     ylab("Number of Deaths")
   return(p)
 }
+build_bar(deaths, "South", "2020-01-04")
