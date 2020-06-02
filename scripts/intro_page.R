@@ -4,9 +4,9 @@ intro_page <- tabPanel(
    # I also think that this page would look really nice with an outline on the
    # left (like google docs, if you've seen the document outlines they do).
    # Just a thought; do whatever you want with it.
-   title = "Summary",
+   title = h1("Covid Trends"),
 
-   h1("The Effects of Mobility during the Covid Pandemic"),
+   h2("The Effects of Mobility during the Covid Pandemic"),
 
    img("", src = "https://dkr0pu7ej5xex.cloudfront.net/wp-content/uploads/2020/04/03164956/Google-Map-Digital-Magazine-scaled.jpg",
        height = "50%", width = "50%", align = "right"),
