@@ -7,7 +7,7 @@ library("ggplot2")
 third_sidebar_content <-
    sidebarPanel(
       dateRangeInput(
-         inputId = "date_page_3""
+         inputId = "date_page_3",
          label = h3("Date Range"),
          min = "2020-02-15",
          start = "2020-02-15",
