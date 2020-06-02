@@ -26,9 +26,8 @@ build_bar <- function(data, region_input, day_input) {
 
      # filter to only display states in the selected region
      filter(Region == region_input) %>%
-     filter(date == day_input) %>% #filter the selected input day
+     # filter(date == day_input) %>% #filter the selected input day
      group_by(State) %>%
-     distinct(State, date) %>%
      summarise(
         excess = sum(Excess, na.rm = TRUE)
      )
