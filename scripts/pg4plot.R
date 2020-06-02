@@ -33,6 +33,7 @@ build_bar <- function(data, region_input, day_input) {
      filter(Region == region_input) %>%
      dplyr::filter(date == day_input) %>% #filter the selected input day
      group_by(State) %>%
+     #distinct(State, date) %>%
      summarise(
         excess = sum(Excess, na.rm = TRUE)
      )
