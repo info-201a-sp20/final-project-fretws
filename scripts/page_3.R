@@ -8,6 +8,7 @@ third_sidebar_content <-
          "date_page_3",
          label = "Select Date",
          start = as.Date("2020-02-15"),
+         end = as.Date("2020-05-07"),
          min = as.Date("2020-02-15"),
          max = as.Date("2020-05-07")
       )
@@ -16,7 +17,7 @@ third_sidebar_content <-
 #define a variable for the main panel of the third page
 third_main_content <- mainPanel(
    plotlyOutput(
-      "chart3"
+      "pg3plot"
    ),
 
    p("In order to better understand how the travel habits changed by location,

@@ -3,7 +3,7 @@ library(dplyr)
 library(lubridate)
 library(ggplot2)
 #create data frame with regions for states
-region <- as.data.frame(list(state.name, state.region)) %>%
+us_regions <- as.data.frame(list(state.name, state.region)) %>%
   rename(State = c..Alabama....Alaska....Arizona....Arkansas....California....Colorado...) %>%
   rename(region = structure.c.2L..4L..4L..2L..4L..4L..1L..2L..2L..2L..4L..4L..3L..)
 
@@ -12,7 +12,7 @@ deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv", stringsAsF
 
 # combine add regions to deaths dataset and filter unneeded columns
 deaths <- deaths %>%
-  left_join(region) %>%
+  left_join(us_regions) %>%
   select(Week.Ending.Date, State, region, Excess) %>%
    mutate(Saturday = mdy(Week.Ending.Date))
 
@@ -30,7 +30,7 @@ build_bar <- function(data, region_input, day) {
   data <- data %>%
      # filter to only display states in the selected region
      filter(region == region_input) %>%
-     filter(Saturday == week_end_date) %>% #filter to the week of selected input rounding to nearest saturday
+     dplyr::filter(Saturday == week_end_date) %>%
      group_by(State) %>%
      distinct(State, Excess) %>%
      summarise(
@@ -46,3 +46,4 @@ build_bar <- function(data, region_input, day) {
     ylab("Number of Deaths")
   return(p)
 }
+build_bar(deaths, "South", "2020-01-04")
