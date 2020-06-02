@@ -21,9 +21,10 @@ pg2plot <- function(data, categories, date_range) {
 
    # If the date range is small enough, plot the data by day instead of by
    # week.
-   course_data <- yday(date_range[2]) - yday(date_range[1]) > 15
+   # coarse_data <- yday(date_range[2]) - yday(date_range[1]) > 15
+   coarse_data <- T
 
-   if (course_data) {
+   if (coarse_data) {
       grouped <- filtered %>%
          mutate(time = week(date)) %>%
          group_by(time)
@@ -73,7 +74,7 @@ pg2plot <- function(data, categories, date_range) {
            title = "2020 Trends in USA Travel by Category",
            color = "Travel Category")
 
-   # if (course_data) {
+   # if (coarse_data) {
    #    date_range[1] <- week(ymd(date_range[1]))
    #    date_range[2] <- week(ymd(date_range[2]))
    #    apple_data_release <- week(ymd("2020-4-14"))
