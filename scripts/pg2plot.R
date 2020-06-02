@@ -21,9 +21,9 @@ pg2plot <- function(data, categories, date_range) {
 
    # If the date range is small enough, plot the data by day instead of by
    # week.
-   course_data <- yday(date_range[2]) - yday(date_range[1]) > 15
+   coarse_data <- yday(date_range[2]) - yday(date_range[1]) > 15
 
-   if (course_data) {
+   if (coarse_data) {
       grouped <- filtered %>%
          mutate(time = week(date)) %>%
          group_by(time)
@@ -60,6 +60,7 @@ pg2plot <- function(data, categories, date_range) {
       str_to_title() %>%
       str_replace_all("And", "and")
 
+   # Plot data
    plt <- ggplot(averages) +
       geom_hline(yintercept = 0, size = 1) +
       geom_line(aes(x = time, y = avg_percent_change, color = travel_category),
@@ -73,28 +74,34 @@ pg2plot <- function(data, categories, date_range) {
            title = "2020 Trends in USA Travel by Category",
            color = "Travel Category")
 
-   # if (course_data) {
-   #    date_range[1] <- week(ymd(date_range[1]))
-   #    date_range[2] <- week(ymd(date_range[2]))
-   #    apple_data_release <- week(ymd("2020-4-14"))
-   #    google_data_release <- week(ymd("2020-4-03"))
-   # } else {
-   #    date_range[1] <- yday(ymd(date_range[1]))
-   #    date_range[2] <- yday(ymd(date_range[2]))
-   #    apple_data_release <- yday(ymd("2020-4-14"))
-   #    google_data_release <- yday(ymd("2020-4-03"))
-   # }
+   if (coarse_data) {
+      apple_data_release <- week(ymd("2020-4-14"))
+      google_data_release <- week(ymd("2020-4-03"))
+   } else {
+      apple_data_release <- ymd("2020-4-14")
+      google_data_release <- ymd("2020-4-03")
+   }
+   # Plot lines and text labels for the dates that Google and Apple mobility
+   # data were released, but only if they are in the user selected date range
+   if ((date_range[1] < ymd("2020-4-14")) &
+       (date_range[2] > ymd("2020-4-14"))) {
+      plt <- plt +
+         geom_vline(xintercept = apple_data_release,
+                    color = "white", size = 0.75) +
+         geom_text(mapping = aes(x = apple_data_release, y = 0,
+                       label = "Apple Initial Data Release"),
+                   color = "white", angle = 90, vjust = -0.75)
+   }
 
-   # if ((date_range[1] < apple_data_release) &
-   #     (date_range[2] > apple_data_release)) {
-   #    plt <- plt +
-   #       geom_vline(xintercept = apple_data_release)
-   # }
-   # if ((date_range[1] < google_data_release) &
-   #     (date_range[2] > google_data_release)) {
-   #    plt <- plt +
-   #       geom_vline(xintercept = google_data_release)
-   # }
+   if ((date_range[1] < ymd("2020-4-03")) &
+       (date_range[2] > ymd("2020-4-03"))) {
+      plt <- plt +
+         geom_vline(xintercept = google_data_release,
+                    color = "white", size = 0.75) +
+         geom_text(mapping = aes(x = google_data_release, y = 0,
+                       label = "Google Initial Data Release"),
+                   color = "white", angle = 90, vjust = -0.75)
+   }
 
    plt
 }
