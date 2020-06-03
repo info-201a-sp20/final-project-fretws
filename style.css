@@ -1,0 +1,25 @@
+h1{
+   font-size:15px;
+   font-weight:bold;
+   font-family:sans-serif;
+
+}
+h2{
+   font-family:sans-serif;
+   font-size:30px;
+   color:red;
+   font-weight:bold;
+}
+h3{
+   font-family:sans-serif;
+   font-size:20px;
+}
+h4{
+   font-family:sans-serif;
+   font-size:20px;
+   color:red;
+}
+p{
+   font-family:sans-serif;
+   color:gray;
+}

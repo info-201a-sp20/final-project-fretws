@@ -10,7 +10,7 @@ fourth_sidebar_content <- sidebarPanel(
    selectInput(
       "barcheck",
       inputId = "sel_reg",
-      label = "Select Region",
+      label = h3("Select Region"),
       choices = list("East" = "Northeast",
                      "North" = "North Central",
                      "West" = "West",
@@ -19,10 +19,16 @@ fourth_sidebar_content <- sidebarPanel(
    ),
    dateInput(
       inputId = "sel_date",
+<<<<<<< HEAD
       label = "Select Date Range",
       min = "2020-04-04",
+=======
+      label = h3("Select Week"),
+      min = "2020-01-01",
+>>>>>>> a974173f7bb611a2031db81083c3b45ddde006da
       max = "2020-04-25",
       format = "yyyy-mm-dd",
+      value = "2020-01-04",
       daysofweekdisabled = 0:5
    )
 )
@@ -37,7 +43,7 @@ fourth_main_content <- mainPanel(plotOutput("pg4plot"),
 
 # define a variable for a panel to hold the content for the fourth page
 page_four <- tabPanel(
-   "Death Impact",
+   h1("Death Impact"),
    sidebarLayout(
       fourth_sidebar_content,
       fourth_main_content)

@@ -21,11 +21,14 @@ source("scripts/summary_table.R")
 #   summary_page
 # )
 
-ui <- navbarPage(
-  title = strong("Final Deliverable"),
+ui <- fluidPage(
+   includeCSS("style.css"),
+   navbarPage(
+  title = h1("Final Deliverable"),
   intro_page,
   page_two,
   page_three,
   page_four,
-  inverse = T)
+  summary_page,
+  inverse = T))
 

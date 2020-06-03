@@ -19,7 +19,7 @@ side_bar <- sidebarPanel(
    # widgets
    checkboxGroupInput(
       inputId = "trav_cat",
-      label = "Travel Category",
+      label = h3("Travel Category"),
       choiceNames = choiceNames,
       choiceValues = choiceValues
    ),
@@ -49,7 +49,7 @@ main_panel = mainPanel(
 
 #define variable to maneuver content for second page
 page_two <- tabPanel(
-   title = "Question",
+   title = h1("Categorical Changes in Movement"),
    sidebarLayout(
       sidebarPanel = side_bar,
       mainPanel = main_panel
