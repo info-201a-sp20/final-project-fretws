@@ -29,7 +29,7 @@ third_main_content <- mainPanel(
 
 #define a variable that takes in the contents for the third page
 page_three <- tabPanel(
-   "Map for Covid Movement in US",
+   h1("Map for Covid Movement in US"),
    sidebarLayout(
       third_sidebar_content,
       third_main_content

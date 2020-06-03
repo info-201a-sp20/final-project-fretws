@@ -42,3 +42,5 @@ plot_3 <- function(data, date_select) {
            title = "Mobility by State", fill = "All Categories")
    ggplotly(plot, tooltip = "text")
 }
+
+plot_3(mobility, as.Date("2020-02-15"))
