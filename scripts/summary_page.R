@@ -3,7 +3,9 @@ summary_page <- tabPanel(
   h3("The categorical changes in mobility"),
   p(),
   h3("The changes in mobility by state"),
-  p(),
+  p("The analysis of this data confirms our hypothesis that the average change
+     in mobility by state significantly decreased following the rise of
+     COVID-19 (especially after the issuing of stay at home orders)"),
   h3("The changes in death impact by region"),
   p("Through our analysis of the data, the annual mortality rate
     has risen in at different rates from the baseline across the
