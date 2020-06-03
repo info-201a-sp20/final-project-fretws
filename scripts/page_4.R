@@ -11,10 +11,11 @@ fourth_sidebar_content <- sidebarPanel(
       "barcheck",
       inputId = "sel_reg",
       label = h3("Select Region"),
-      choices = list("East" = "Northeast",
-                     "North" = "North Central",
-                     "West" = "West",
-                     "South" = "South"
+      choices = list("North" = "North Central",
+                     "South" = "South",
+                     "East" = "Northeast",
+                     "West" = "West"
+
       )
    ),
    dateInput(
@@ -23,7 +24,7 @@ fourth_sidebar_content <- sidebarPanel(
       min = "2020-01-01",
       max = "2020-04-25",
       format = "yyyy-mm-dd",
-      value = "2020-01-04",
+      value = "2020-04-04",
       daysofweekdisabled = 0:5
    )
 )
@@ -34,7 +35,9 @@ fourth_main_content <- mainPanel(plotOutput("pg4plot"),
                                   we used a bar chart representing the states of each region of the US.
                                   The week can be selected to show the excess deaths by state each week
                                   so that the user can gain a better understanding of
-                                  how the mobility trends have effected the death toll."))
+                                  how the mobility trends have effected the death toll. Very few excess
+                                  deaths are recorded for the beginning of the year but there is a
+                                  significant increase in by March and April."))
 
 # define a variable for a panel to hold the content for the fourth page
 page_four <- tabPanel(

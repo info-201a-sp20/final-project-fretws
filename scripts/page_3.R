@@ -6,14 +6,15 @@ library("ggplot2")
 #define variable for the sidebar of the third page
 third_sidebar_content <-
    sidebarPanel(
-      dateRangeInput(
+      dateInput(
          inputId = "date_page_3",
          label = h3("Date Range"),
          min = "2020-02-15",
-         start = "2020-02-15",
+         #start = "2020-02-15",
          max = "2020-05-07",
-         end = "2020-05-07",
-         format = "yyyy-mm-dd"
+         #end = "2020-05-07",
+         format = "yyyy-mm-dd",
+         value = "2020-05-07"
       )
    )
 

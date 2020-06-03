@@ -10,15 +10,24 @@ pg3plot <- function(data, date_select) {
 
   # filter mobility dataset
   # add long, lat, and region = sub_region_1 to mobility
-  usa <- map_data(map = "state") %>%
-    select(-subregion, -order) %>%
-    mutate(region = stringr::str_to_title(region))
 
-  mobility_small <- data %>%
-    filter(country_region == "United States") %>%
-    filter(sub_region_1 != "") %>%
-    mutate(region = sub_region_1) %>%
-    select(-sub_region_2, -sub_region_1) %>%
+   filtered <- data %>%
+      mutate(date = ymd(date)) %>%
+      filter(date == date_select)
+
+   usa <- map_data(map = "state") %>%
+      select(-subregion, -order, -group) %>%
+      mutate(region = stringr::str_to_title(region))
+
+   mobility_small <- filtered %>%
+      filter(country_region == "United States") %>%
+      filter(sub_region_1 != "") %>%
+      mutate(region = sub_region_1) %>%
+      select(-sub_region_2,
+           -sub_region_1,
+           -country_region,
+           -country_region_code
+           ) %>%
     mutate(all_categories =
              (grocery_and_pharmacy_percent_change_from_baseline +
              parks_percent_change_from_baseline +
@@ -51,4 +60,4 @@ pg3plot <- function(data, date_select) {
   ggplotly(plot, tooltip = "text")
 }
 
-# test_mob <- pg3plot(mobility, as.Date("2020-02-15"))
+ #test_mob <- pg3plot(mobility, as.Date("2020-02-15"))
