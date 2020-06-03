@@ -18,7 +18,7 @@ server <- function(input, output) {
    })
 
    output$pg3plot <- renderPlotly({
-      pg_3_plot(data = mobility,
+      pg3plot(data = mobility,
              date_select = input$date_page_3)
 
    })
