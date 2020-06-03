@@ -29,21 +29,21 @@ pg3plot <- function(data, date_select) {
     group_by(sub_region_1) %>%
     summarise(all_categories =
                 mean(all_categories, na.rm = T)
-              # ,
-              # grocery =
-              #   mean(grocery_and_pharmacy_percent_change_from_baseline,
-              #        na.rm = T),
-              # parks =
-              #   mean(parks_percent_change_from_baseline, na.rm = T),
-              # retail =
-              #   mean(retail_and_recreation_percent_change_from_baseline,
-              #        na.rm = T),
-              # transit =
-              #   mean(transit_stations_percent_change_from_baseline, na.rm = T),
-              # workplaces =
-              #   mean(workplaces_percent_change_from_baseline, na.rm = T),
-              # residential =
-              #   mean(residential_percent_change_from_baseline, na.rm = T)
+              ,
+              grocery =
+                mean(grocery_and_pharmacy_percent_change_from_baseline,
+                     na.rm = T),
+              parks =
+                mean(parks_percent_change_from_baseline, na.rm = T),
+              retail =
+                mean(retail_and_recreation_percent_change_from_baseline,
+                     na.rm = T),
+              transit =
+                mean(transit_stations_percent_change_from_baseline, na.rm = T),
+              workplaces =
+                mean(workplaces_percent_change_from_baseline, na.rm = T),
+              residential =
+                mean(residential_percent_change_from_baseline, na.rm = T)
               )
 
   data <- left_join(usa, data, by = c("region" = "sub_region_1"))
@@ -54,19 +54,19 @@ pg3plot <- function(data, date_select) {
       y = lat,
       group = group,
       # text = paste0(region,
-                    # "\nGrocery and Pharmacy: ", round(grocery, 2),
-                    # "\nParks and Recreation: ", round(parks, 2),
-                    # "\nRetail and Recreation: ", round(retail, 2),
-                    # "\nTransit Stations: ", round(transit, 2),
-                    # "\nResidential: ", round(residential, 2),
-                    # "\nWorkplaces: ", round(workplaces, 2)),
+      #               "\nGrocery and Pharmacy: ", round(grocery, 2),
+      #               "\nParks and Recreation: ", round(parks, 2),
+      #               "\nRetail and Recreation: ", round(retail, 2),
+      #               "\nTransit Stations: ", round(transit, 2),
+      #               "\nResidential: ", round(residential, 2),
+      #               "\nWorkplaces: ", round(workplaces, 2)),
       fill = all_categories),
-      color = "white"
-    ) +
+      color = "white") +
     labs(x = "Longitude", y = "Latitude",
          title = "Mobility by State")
   # ggplotly(plot, tooltip = "text")
-  ggplotly(plot)
+  lyplot <- ggplotly(plot)
+  lyplot
 }
 
 # test_mob <- pg3plot(mobility, as.Date("2020-02-15"))
