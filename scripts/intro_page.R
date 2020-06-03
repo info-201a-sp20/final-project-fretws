@@ -9,8 +9,7 @@ intro_page <- tabPanel(
   h2("The Effects of Mobility during the Covid Pandemic"),
 
   img("",
-    src = "https://dkr0pu7ej5xex.cloudfront.net/wp-content/
-    uploads/2020/04/03164956/Google-Map-Digital-Magazine-scaled.jpg",
+    src = "https://dkr0pu7ej5xex.cloudfront.net/wp-content/uploads/2020/04/03164956/Google-Map-Digital-Magazine-scaled.jpg",
     height = "50%", width = "50%", align = "right"
   ),
 

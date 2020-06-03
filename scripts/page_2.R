@@ -21,8 +21,8 @@ side_bar <- sidebarPanel(
   checkboxGroupInput(
     inputId = "trav_cat",
     label = h3("Travel Category"),
-    choice_names = choice_names,
-    choice_values = choice_values
+    choiceNames = choice_names,
+    choiceValues = choice_values
   ),
   dateRangeInput(
     inputId = "date_range",
