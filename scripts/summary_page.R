@@ -6,5 +6,6 @@ summary_page <- tabPanel(
    p(),
    h1("The changes in death impact by region"),
    p("Through our analysis of the data, the annual mortality rate has risen far less significantly from the baseline
-     when asses by region instead of state. Comparing the average mobility trends for the country by region shows...")
+     when assessed by region instead of state. Comparing the changing numbers across each region displays clearer view 
+     on how COVID regions across the US. Comparing the average mobility trends for the country by region shows that ")
 )

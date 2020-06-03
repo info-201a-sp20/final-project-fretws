@@ -19,13 +19,10 @@ fourth_sidebar_content <- sidebarPanel(
    ),
    dateInput(
       inputId = "sel_date",
-<<<<<<< HEAD
-      label = "Select Date Range",
-      min = "2020-04-04",
-=======
+      # label = "Select Date Range",
+      #min = "2020-04-04",
       label = h3("Select Week"),
       min = "2020-01-01",
->>>>>>> a974173f7bb611a2031db81083c3b45ddde006da
       max = "2020-04-25",
       format = "yyyy-mm-dd",
       value = "2020-01-04",
