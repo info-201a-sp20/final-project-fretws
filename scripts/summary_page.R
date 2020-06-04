@@ -17,7 +17,10 @@ summary_page <- tabPanel(
    h1("The Changes in Mobility by State"),
    p("The analysis of this data confirms our hypothesis that the average change
      in mobility by state significantly decreased following the rise of
-     COVID-19 (especially after the issuing of stay at home orders)"),
+     COVID-19. The areas with a that were highly impacted by COVID-19 saw a
+     swift change in mobility habits. Other factors that could affect the
+     mobility of the state is the transportation and economic standard for
+     the area."),
    h1("The Changes in Death Impact by Region"),
    p("Through our analysis of the data, the annual mortality rate has risen
       in at different rates from the baseline across the US when assessed by

@@ -46,7 +46,10 @@ third_main_content <- mainPanel(
 
    p("In order to better understand how the travel habits changed by location,
      we paired a date widget with an interactive map. The stay at home order
-     beginning__, the changes can be seen by location."))
+     beginning 3/16/2020, the changes can be seen by location. The category can
+     be selected to better understand how the area is affected by the the travel
+     restrictions. Google released their geolocation data 4/14/2020 so the user
+     can see the trends for each state."))
 
 #define a variable that takes in the contents for the third page
 page_three <- tabPanel(
