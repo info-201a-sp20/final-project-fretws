@@ -14,7 +14,7 @@ pg3plot <- function(data, date_select, category) {
   # filter mobility dataset
   # add long, lat, and region = sub_region_1 to mobility
 
-  data <- read.csv("data/Global_Mobility_Report.csv")
+  # data <- read.csv("data/Global_Mobility_Report.csv")
   data <- data %>%
     filter(country_region_code == "US") %>%
     filter(sub_region_1 != "") %>%
@@ -26,10 +26,12 @@ pg3plot <- function(data, date_select, category) {
              workplaces_percent_change_from_baseline +
              residential_percent_change_from_baseline) / 6) %>%
     select(-sub_region_2, -country_region, -country_region_code) %>%
-    select(sub_region_1, !! as.name(category)) %>%
+    select(sub_region_1, date, !! as.name(category)) %>%
     # filter to the given date range
+    # filter(date) %>%
     group_by(sub_region_1) %>%
-    summarise(selected_category = mean(!! as.name(category), na.rm = T))
+    summarise(percent_change_from_baseline = mean(!! as.name(category),
+                                                  na.rm = T))
 
   data <- left_join(usa, data, by = c("region" = "sub_region_1"))
 
@@ -38,7 +40,7 @@ pg3plot <- function(data, date_select, category) {
       x = long,
       y = lat,
       group = group,
-      fill = selected_category),
+      fill = percent_change_from_baseline),
       color = "white") +
     labs(x = "Longitude", y = "Latitude",
          title = "Mobility by State")
