@@ -2,62 +2,50 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 
-pg3plot <- function(data, date_select) {
+usa <- map_data(map = "state") %>%
+  mutate(region = stringr::str_to_title(region))
+
+pg3plot <- function(data, date_select, category) {
   # How have travel habits changed by location in response to the COVID-19
   # stay-at-home orders? Map from midpoint deliverable, but you can change
   # time frame date range widget. Include a paragraph explaining the dates
   # for stay at home orders, so the user knows what time frames to look up.
 
-  # filter mobility dataset
-  # add long, lat, and region = sub_region_1 to mobility
-
-   filtered <- data %>%
-      mutate(date = ymd(date)) %>%
-      filter(date == date_select)
-
-   usa <- map_data(map = "state") %>%
-      select(-subregion, -order, -group) %>%
-      mutate(region = stringr::str_to_title(region))
-
-   mobility_small <- filtered %>%
-      filter(country_region == "United States") %>%
-      filter(sub_region_1 != "") %>%
-      mutate(region = sub_region_1) %>%
-      select(-sub_region_2,
-           -sub_region_1,
-           -country_region,
-           -country_region_code
-           ) %>%
+  # Filter filter and clean dataset
+  data <- data %>%
+    filter(country_region_code == "US") %>%
+    filter(sub_region_1 != "") %>%
+    # filter to the given date range
+    filter(date > date_select[1], date < date_select[2]) %>%
+    # get average of all categories as another column
     mutate(all_categories =
              (grocery_and_pharmacy_percent_change_from_baseline +
              parks_percent_change_from_baseline +
              retail_and_recreation_percent_change_from_baseline +
              transit_stations_percent_change_from_baseline +
-             workplaces_percent_change_from_baseline) / 5)
+             workplaces_percent_change_from_baseline +
+             residential_percent_change_from_baseline) / 6) %>%
+    # remove useless columns
+    select(-sub_region_2, -country_region, -country_region_code) %>%
+    select(sub_region_1, date, !! as.name(category)) %>%
+    # average teh selected category across the given time frame
+    group_by(sub_region_1) %>%
+    summarise(percent_change_from_baseline = mean(!! as.name(category),
+                                                  na.rm = T))
 
-  df <- left_join(mobility_small, usa, by = "region")
+  # join with usa dataset for plotting geometry
+  data <- left_join(usa, data, by = c("region" = "sub_region_1"))
 
-  plot <- ggplot(data = df) +
+  plot <- ggplot(data = data) +
     geom_polygon(mapping = aes(
       x = long,
       y = lat,
-      text = paste0(region,
-                    "\nGrocery and Pharmacy: ",
-                    round(grocery_and_pharmacy_percent_change_from_baseline, 2),
-                    "\nParks and Recreation: ",
-                    round(parks_percent_change_from_baseline, 2),
-                    "\nRetail and Recreation: ",
-                    round(retail_and_recreation_percent_change_from_baseline, 2),
-                    "\nTransit Stations: ",
-                    round(transit_stations_percent_change_from_baseline, 2),
-                    "\nWorkplaces: ",
-                    round(workplaces_percent_change_from_baseline, 2)),
-      fill = all_categories),
-      color = "white"
-    ) +
+      group = group,
+      fill = percent_change_from_baseline),
+      color = "white") +
     labs(x = "Longitude", y = "Latitude",
-         title = "Mobility by Date")
-  ggplotly(plot, tooltip = "text")
+         title = "Mobility by State")
+  lyplot <- ggplotly(plot)
+  lyplot
 }
 
- #test_mob <- pg3plot(mobility, as.Date("2020-02-15"))

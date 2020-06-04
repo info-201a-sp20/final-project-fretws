@@ -9,7 +9,9 @@ summary_page <- tabPanel(
      and date range, we allow users to view specific information and compare information. Its important to notice that this interactive
      chart confirms our reasoning behind the analysis of the mobility dataset. "),
    h1("The Changes in Mobility by State"),
-   p(),
+   p("The analysis of this data confirms our hypothesis that the average change
+     in mobility by state significantly decreased following the rise of
+     COVID-19 (especially after the issuing of stay at home orders)"),
    h1("The Changes in Death Impact by Region"),
    p("Through our analysis of the data, the annual mortality rate has risen in at different rates from the baseline 
      across the US when assessed by region instead of state. Comparing the changing numbers across each region displays
