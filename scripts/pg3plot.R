@@ -48,4 +48,3 @@ pg3plot <- function(data, date_select, category) {
   lyplot <- ggplotly(plot)
   lyplot
 }
-
