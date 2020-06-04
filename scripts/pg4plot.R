@@ -4,15 +4,16 @@ library("lubridate")
 library("ggplot2")
 # create data frame with regions for states
 
-USregions <- as.data.frame(list(state.name, state.region)) %>%
+usa_regions <- as.data.frame(list(state.name, state.region)) %>%
   `colnames<-`(c("State", "Region"))
 
 # load deaths dataset
-deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv", stringsAsFactors = FALSE)
+deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv",
+      stringsAsFactors = FALSE)
 
 # combine add regions to deaths dataset and filter unneeded columns
 deaths <- deaths %>%
-  left_join(USregions, by = "State") %>%
+  left_join(usa_regions, by = "State") %>%
   select(Week.Ending.Date, State, Region, Excess) %>%
   mutate(date = mdy(Week.Ending.Date))
 
