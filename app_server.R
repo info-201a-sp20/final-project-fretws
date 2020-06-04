@@ -16,7 +16,8 @@ server <- function(input, output) {
       categories = input$trav_cat,
       date_range = input$date_range
     )
-  })
+   })
+
 
   output$pg3plot <- renderPlotly({
     pg3plot(
@@ -25,6 +26,7 @@ server <- function(input, output) {
       category_select = input$pg3_category
     )
   })
+
 
   output$pg4plot <- renderPlot({
     build_bar(

@@ -30,7 +30,7 @@ pg3plot <- function(data, date_select, category_select) {
       select(sub_region_1, date, !! as.name(category)) %>%
       # average teh selected category across the given time frame
       group_by(sub_region_1) %>%
-      summarise(percent_change_from_baseline = mean(!! as.name(category),
+      summarise(percent_change_from_baseline = mean(!!as.name(category),
                                                     na.rm = T))
 
    # join with usa dataset for plotting geometry
@@ -48,3 +48,4 @@ pg3plot <- function(data, date_select, category_select) {
    lyplot <- ggplotly(plot)
    lyplot
 }
+

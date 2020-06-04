@@ -1,5 +1,4 @@
 choice_values <- c(
-  # "average",
   "retail_and_recreation_percent_change_from_baseline",
   "grocery_and_pharmacy_percent_change_from_baseline",
   "parks_percent_change_from_baseline",
@@ -13,7 +12,6 @@ choice_names <- choice_values %>%
   str_replace_all("_", " ") %>%
   str_to_title() %>%
   str_replace_all("And", "and")
-
 
 # define variable for sidebar panel for second page
 side_bar <- sidebarPanel(
