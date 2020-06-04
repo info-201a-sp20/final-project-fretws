@@ -69,5 +69,9 @@ pg3plot <- function(data, date_select) {
   ggplotly(plot)
 }
 
+<<<<<<< HEAD
 # test_mob <- pg3plot(mobility, as.Date("2020-02-15"))
 
+=======
+ #test_mob <- pg3plot(mobility, as.Date("2020-02-15"))
+>>>>>>> 59b61de6320471ba451e753df4164bc9cf5f1fe7
