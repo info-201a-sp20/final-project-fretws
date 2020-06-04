@@ -16,14 +16,13 @@ server <- function(input, output) {
       categories = input$trav_cat,
       date_range = input$date_range
     )
-  })
+   })
 
-  output$pg3plot <- renderPlotly({
-    pg3plot(
-      data = mobility,
-      date_select = input$date_page_3
-    )
-  })
+   output$pg3plot <- renderPlotly({
+      pg3plot(data = mobility,
+             date_select = input$date_page_3,
+             category = input$pg3_category)
+   })
 
   output$pg4plot <- renderPlot({
     build_bar(
