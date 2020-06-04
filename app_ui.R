@@ -24,10 +24,10 @@ ui <- fluidPage(
    includeCSS("style.css"),
    navbarPage(
   title = h1("Final Deliverable"),
-  # intro_page,
-  # page_two,
+  intro_page,
+  page_two,
   page_three,
-  # page_four,
-  # summary_page,
+  page_four,
+  summary_page,
   inverse = T))
 
