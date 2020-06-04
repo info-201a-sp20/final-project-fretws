@@ -21,7 +21,7 @@ choice_names <- choice_values %>%
 #define variable for the sidebar of the third page
 third_sidebar_content <-
    sidebarPanel(
-      dateInput(
+      dateRangeInput(
          inputId = "date_page_3",
          label = h3("Date Range"),
          min = "2020-02-15",
