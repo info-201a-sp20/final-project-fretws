@@ -23,7 +23,7 @@ server <- function(input, output) {
     pg3plot(
       data = mobility,
       date_select = input$date_page_3,
-      category_select = input$pg3_category
+      category = input$pg3_category
     )
   })
 

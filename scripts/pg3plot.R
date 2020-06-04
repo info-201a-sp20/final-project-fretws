@@ -5,7 +5,7 @@ library("plotly")
 usa <- map_data(map = "state") %>%
    mutate(region = stringr::str_to_title(region))
 
-pg3plot <- function(data, date_select, category_select) {
+pg3plot <- function(data, date_select, category) {
    # How have travel habits changed by location in response to the COVID-19
    # stay-at-home orders? Map from midpoint deliverable, but you can change
    # time frame date range widget. Include a paragraph explaining the dates
