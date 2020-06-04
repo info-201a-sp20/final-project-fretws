@@ -11,10 +11,6 @@ pg3plot <- function(data, date_select, category) {
   # time frame date range widget. Include a paragraph explaining the dates
   # for stay at home orders, so the user knows what time frames to look up.
 
-  # filter mobility dataset
-  # add long, lat, and region = sub_region_1 to mobility
-
-  # data <- read.csv("data/Global_Mobility_Report.csv")
   data <- data %>%
     filter(country_region_code == "US") %>%
     filter(sub_region_1 != "") %>%
@@ -28,7 +24,7 @@ pg3plot <- function(data, date_select, category) {
     select(-sub_region_2, -country_region, -country_region_code) %>%
     select(sub_region_1, date, !! as.name(category)) %>%
     # filter to the given date range
-    # filter(date) %>%
+    filter(date > date_select[1], date < date_select[2]) %>%
     group_by(sub_region_1) %>%
     summarise(percent_change_from_baseline = mean(!! as.name(category),
                                                   na.rm = T))
