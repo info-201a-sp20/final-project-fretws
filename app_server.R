@@ -21,7 +21,8 @@ server <- function(input, output) {
   output$pg3plot <- renderPlotly({
     pg3plot(
       data = mobility,
-      date_select = input$date_page_3
+      date_select = input$date_page_3,
+      category_select = input$pg3_category
     )
   })
 

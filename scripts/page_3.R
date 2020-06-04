@@ -3,18 +3,38 @@ library("dplyr")
 library("plotly")
 library("ggplot2")
 
+choice_values <- c(
+   "all_categories",
+   "retail_and_recreation_percent_change_from_baseline",
+   "grocery_and_pharmacy_percent_change_from_baseline",
+   "parks_percent_change_from_baseline",
+   "transit_stations_percent_change_from_baseline",
+   "workplaces_percent_change_from_baseline",
+   "residential_percent_change_from_baseline")
+
+choice_names <- choice_values %>%
+   str_replace("percent_change_from_baseline", "") %>%
+   str_replace_all("_", " ") %>%
+   str_to_title() %>%
+   str_replace_all("And", "and")
+
 #define variable for the sidebar of the third page
 third_sidebar_content <-
    sidebarPanel(
-      dateInput(
+      dateRangeInput(
          inputId = "date_page_3",
          label = h3("Date Range"),
          min = "2020-02-15",
-         #start = "2020-02-15",
+         start = "2020-02-15",
          max = "2020-05-07",
-         #end = "2020-05-07",
-         format = "yyyy-mm-dd",
-         value = "2020-05-07"
+         end = "2020-05-07",
+         format = "yyyy-mm-dd"
+      ),
+      radioButtons(
+         inputId = "pg3_category",
+         label = h3("Travel Category"),
+         choiceNames = choice_names,
+         choiceValues = choice_values
       )
    )
 
