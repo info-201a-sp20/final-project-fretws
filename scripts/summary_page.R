@@ -6,12 +6,12 @@ summary_page <- tabPanel(
       collected regarding the population's movement for a variety of
       activities. Those trends can be seen changing from February 15th to May
       7th of 2020. It was important to notice the differences in mobility for
-      each category on one graph, in reference to when when the initial data
+      each category on one graph, in reference to when the initial data
       was released by Google and Apple. The Residential category is one that
       seems to stand out due to its high rate of mobility from the baseline
-      comapred to other catergories. By allowing customization of categories
+      compared to other catergories. By allowing customization of categories
       and date range, we allow users to view specific information and compare
-      information. Its important to notice that this interactive chart
+      the results. Its important to notice that this interactive chart
       confirms our reasoning behind the analysis of the mobility dataset.
      "),
    h1("The Changes in Mobility by State"),
@@ -36,8 +36,9 @@ summary_page <- tabPanel(
       us to see not only regional differences in excess deaths, but also
       state to state deaths per region. With excess death noticeably
       increasing across the regions form February and tapering off during the
-      month of April. Additoinally, the Southern states see the most number
+      month of April. Additionally, the Southern states see the most number
       of excess death, reaching numbers above 800 for states such as West
-      Virginia.
+      Virginia. Significant insight such as this confirms our reasoning behind
+      the analysis of the death dataset.
      ")
 )
