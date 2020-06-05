@@ -1,5 +1,6 @@
 library("dplyr")
 library("ggplot2")
+library("maps")
 library("plotly")
 
 usa <- map_data(map = "state") %>%
