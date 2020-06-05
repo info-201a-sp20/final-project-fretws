@@ -1,6 +1,6 @@
 summary_page <- tabPanel(
    title = h1("Conclusion"),
-   h1("The Categorical Changes in Mobility"),
+   h4("The Categorical Changes in Mobility"),
    p("Due to COVID-19 the US has seen tremendous changes in mobility trends
       across the country. As stay-at-home orders were established, data was
       collected regarding the population's movement for a variety of
@@ -14,7 +14,7 @@ summary_page <- tabPanel(
       the results. Its important to notice that this interactive chart
       confirms our reasoning behind the analysis of the mobility dataset.
      "),
-   h1("The Changes in Mobility by State"),
+   h4("The Changes in Mobility by State"),
    p("The analysis of this data confirms our hypothesis that the average change
      in mobility by state significantly decreased following the rise of
      COVID-19. The areas with a that were highly impacted by COVID-19 saw a
@@ -26,7 +26,7 @@ summary_page <- tabPanel(
      higher mobility. Additionally, the travel to grocery and pharmacy
      locations remained fairly consistant due to them being essencial
      locations."),
-   h1("The Changes in Death Impact by Region"),
+   h4("The Changes in Death Impact by Region"),
    p("Through our analysis of the data, the annual mortality rate has risen
       in at different rates from the baseline across the US when assessed by
       region instead of state. Comparing the changing numbers across each
