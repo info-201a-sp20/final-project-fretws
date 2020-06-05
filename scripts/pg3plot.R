@@ -28,10 +28,10 @@ pg3plot <- function(data, date_select, category) {
       # remove useless columns
       select(-sub_region_2, -country_region, -country_region_code) %>%
       select(sub_region_1, date, !! as.name(category)) %>%
-      # average teh selected category across the given time frame
+      # average the selected category across the given time frame
       group_by(sub_region_1) %>%
       summarise(percent_change_from_baseline = mean(!!as.name(category),
-                                                    na.rm = T))
+                                                    na.rm = TRUE))
 
    # join with usa dataset for plotting geometry
    data <- left_join(usa, data, by = c("region" = "sub_region_1"))

@@ -8,7 +8,7 @@ summary_page <- tabPanel(
       7th of 2020. It was important to notice the differences in mobility for
       each category on one graph, in reference to when when the initial data
       was released by Google and Apple. The Residential category is one that
-      seems to stand out due to its high rate of mobility from the baselin
+      seems to stand out due to its high rate of mobility from the baseline
       comapred to other catergories. By allowing customization of categories
       and date range, we allow users to view specific information and compare
       information. Its important to notice that this interactive chart
@@ -20,7 +20,12 @@ summary_page <- tabPanel(
      COVID-19. The areas with a that were highly impacted by COVID-19 saw a
      swift change in mobility habits. Other factors that could affect the
      mobility of the state is the transportation and economic standard for
-     the area."),
+     the area. Generally, the highest changes in mobility are seen just after
+     the stay at home orders are put in place. However this is not true for all
+     travel catagories. In many states, people residential and parks areas had
+     higher mobility. Additionally, the travel to grocery and pharmacy
+     locations remained fairly consistant due to them being essencial
+     locations."),
    h1("The Changes in Death Impact by Region"),
    p("Through our analysis of the data, the annual mortality rate has risen
       in at different rates from the baseline across the US when assessed by
