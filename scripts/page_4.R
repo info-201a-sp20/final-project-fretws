@@ -32,13 +32,13 @@ fourth_sidebar_content <- sidebarPanel(
 # define variable for main panel for fourth page
 fourth_main_content <- mainPanel(
   plotOutput("pg4plot"),
-  p("To better understand the gravity of how travel effects the pandemic,
+  p("To better understand the gravity of how the pandemic effects the nation,
       we used a bar chart representing the states of each region of the US.
       The week can be selected to show the excess deaths by state each week
       so that the user can gain a better understanding of
-      how the mobility trends have effected the death toll. Very few excess
+      how the pandemic has effected the death toll. Very few excess
       deaths are recorded for the beginning of the year but there is a
-      significant increase in by March and April.")
+      significant increase in deths by March and April.")
 )
 
 # define a variable for a panel to hold the content for the fourth page
