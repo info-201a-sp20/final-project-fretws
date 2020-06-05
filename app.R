@@ -11,5 +11,3 @@ library("stringr")
 
 shinyApp(ui = ui, server = server)
 
-# For testing ui only
-# shinyApp(ui = ui, server = function(input, output){})
