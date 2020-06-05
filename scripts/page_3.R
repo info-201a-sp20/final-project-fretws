@@ -40,6 +40,8 @@ third_sidebar_content <-
 
 #define a variable for the main panel of the third page
 third_main_content <- mainPanel(
+   p("Due to a large underlying dataset, this map may take a moment to render"),
+
    plotlyOutput(
       outputId = "pg3plot"
    ),
