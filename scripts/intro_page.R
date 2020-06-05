@@ -6,7 +6,7 @@ intro_page <- tabPanel(
   # Just a thought; do whatever you want with it.
   title = h1("Covid Trends"),
 
-  h2("The Effects of Mobility during the Covid Pandemic"),
+  h2("The Effects of Mobility during the COVID Pandemic"),
 
   img("",
     src = "https://dkr0pu7ej5xex.cloudfront.net/wp-content/uploads/2020/04/03164956/Google-Map-Digital-Magazine-scaled.jpg",
